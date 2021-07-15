@@ -245,7 +245,7 @@ body h4 {
 
 .projects-div .sent-frame {
   width: 80vw;
-  min-height: 35vh;
+  min-height: 50vh;
   background-color: #EEFBFB;
   border-radius: 1vmin;
   display: block;
@@ -269,7 +269,7 @@ body h4 {
 
 .projects-div .img-mod-frame {
   width: 80vw;
-  min-height: 35vh;
+  min-height: 50vh;
   background-color: #EEFBFB;
   border-radius: 1vmin;
   display: block;
@@ -278,7 +278,7 @@ body h4 {
 
 .projects-div .scrabble-frame {
   width: 80vw;
-  min-height: 35vh;
+  min-height: 50vh;
   border-radius: 1vmin;
   display: block;
   margin: 0 auto;
@@ -286,7 +286,7 @@ body h4 {
 
 .projects-div .vacc-frame {
   width: 80vw;
-  min-height: 35vh;
+  min-height: 50vh;
   background-color: #EEFBFB;
   border-radius: 1vmin;
   display: block;
