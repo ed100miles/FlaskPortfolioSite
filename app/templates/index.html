@@ -1,0 +1,288 @@
+{% extends "base.html" %}
+
+{% block title %}EdMiles.tech{% endblock %}
+
+{% block main %}
+
+<div class="intro-div" id="intro-div"">
+    <div class='intro-top'>
+        <img class="me-img" src="{{ url_for('static', filename='imgs/me.jpeg') }}">
+        <div class="intro-header"> 
+            <h1>Hi!</h1>
+            <h1>I'm Ed Miles</h1>
+            <h4>I can help with:</h4>
+            <div class="type-div">
+                <h4 class="typed-content"></h4>
+            </div>
+        </div>
+    </div>
+    <div class="next-section-link">
+        <a>
+            <p class="scroll-link" id='about-scroll-link' data-scrollTo="about-div"><i class="fas fa-caret-down"></i> About me... <i class="fas fa-caret-down"></i></p>
+        </a>
+    </div>
+</div>
+
+<div class='about-div' id="about-div">
+    <h1>About Me</h1>
+    <div class='about-blurb'>
+        <p>I'm Ed Miles. I've been working in finance for several years. But most of my spare time I've spent learning
+            to code. </p>
+        <p>I've decided to turn my passion into a career. Take a look at my website and if you think I could be a good
+            fit with your team, send me an email.</p>
+        <p>I really enjoy writing programs that help solve a problem, but often they're just for a bit of fun or to
+            learn something new. I get a real kick out of machine learning and natural language programming.</p>
+        <p>You can see some examples of things I've built in the <i>'projects'</i> section below. You'll also find links
+            to my github where you can check out the source code.</p>
+        <p>Thanks for visiting!</p>
+    </div>
+    <div class="next-section-link">
+        <a>
+            <p id='skills-scroll-link' class="scroll-link"  data-scrollTo="skills-div"><i class="fas fa-caret-down"></i> Skills... <i class="fas fa-caret-down"></i></p>
+        </a>
+    </div>
+</div>
+
+<div class='skills-div' id="skills-div">
+    <h1>Technical Skills</h1>
+    <div class="skills-nav-div">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-programming-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-programming" type="button" role="tab" aria-controls="nav-programming"
+                    aria-selected="true">Programming</button>
+                <button class="nav-link" id="nav-front-end-tab" data-bs-toggle="tab" data-bs-target="#nav-front-end"
+                    type="button" role="tab" aria-controls="nav-front-end" aria-selected="false">Front End</button>
+                <button class="nav-link" id="nav-back-end-tab" data-bs-toggle="tab" data-bs-target="#nav-back-end"
+                    type="button" role="tab" aria-controls="nav-back-end" aria-selected="false">Back End</button>
+                <button class="nav-link" id="nav-data-tab" data-bs-toggle="tab" data-bs-target="#nav-data" type="button"
+                    role="tab" aria-controls="nav-data" aria-selected="true">Data</button>
+                <button class="nav-link" id="nav-version-tab" data-bs-toggle="tab" data-bs-target="#nav-version"
+                    type="button" role="tab" aria-controls="nav-version" aria-selected="false">Version Control</button>
+                <button class="nav-link" id="nav-also-tab" data-bs-toggle="tab" data-bs-target="#nav-also" type="button"
+                    role="tab" aria-controls="nav-also" aria-selected="false">Also Familiar With..</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-programming" role="tabpanel"
+                aria-labelledby="nav-programming-tab">
+                <ul class='skills'>
+                    <li><strong><i class="fab fa-python"></i> Python</strong> - This is the programming language started learning first, around five years ago. Over this time I've develped a thorough understanding of core concepts such as working with different data types, logic and flow control, raising and handling exceptions, effectively using functions and classes, as well as utilising modules from the standard library and the wider Python ecosystem. Some examples of libraries I'm familiar with are given under the other tabs above.</li>
+                    <li><strong><i class="fab fa-js-square"></i> JavaScript</strong> - A good understanding of Python allowed me to pick up JavaScript with relative ease once the syntax was learned. I now enjoy using JavaScript both in the browser and using Node.js, for web development and to provide a better user experience for my projects. I'm comfortable writing asynchronous programs, using the fetchAPI, and I'm familiar with the newer features implemented in ES5 and ES6. </li>
+                    <li><strong><i class="fab fa-slack-hash"></i> Bash</strong> - I primarily use distributions based on the Linux operating system. As a result I'm at ease working on the CLI, writing bash scripts, and performing system administration tasks with Bash.
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="nav-front-end" role="tabpanel" aria-labelledby="nav-front-end-tab">
+                <ul class='skills'>
+                    <li><strong><i class="fab fa-html5"></i> HTML</strong> - I have no problem working with HTML. I know how to implement different elements and I'm able to manipulate the DOM with JavaScript.</li>
+                    <li><strong><i class="fab fa-css3-alt"></i> CSS</strong> - I've got a good understanding when it comes to using CSS to add styling to websites, but I find it far more convenient compiling from SASS!</li>
+                    <li><strong><i class="fab fa-sass"></i> SASS</strong> - Finding SASS has been a game changer. I often found styling websites time consuming, but the ease-of-use and powerful functionality SAAS and other CSS pre-processors bring really helps speed up the process. 
+                    </li>
+                    <li><strong><i class="fab fa-js-square"></i> JavaScript</strong>  A good understanding of Python allowed me to pick up JavaScript with relative ease once the syntax was learned. I now enjoy using JavaScript both in the browser and using node, for web development and to provide a better user experience for my projects. I'm comfortable writing asynchronous programs, using the fetchAPI, and I'm familiar with the newer features implemented in ES5 and ES6. 
+                    </li>
+                    <li><strong><i class="fab fa-react"></i> React.js</strong> - I've used React to create several single page applications, and even though I've only recently started using React, and I'm not yet fully utilising all of it's functionality, I find using React componenets a great way of seperating concenrs when coding websites.
+                    </li>
+                    <li><strong><i class="fas fa-code"></i> Jinja</strong> - With a strong background in Python, I find using Jinja intuitive. The ability to create templates and perform logical operations at the front end is very powerful and useful. I find a use case for Jinja with the majority of my Flask applications.
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="nav-back-end" role="tabpanel" aria-labelledby="nav-back-end-tab">
+                <ul class='skills'>
+                    <li><strong><i class="fab fa-linux"></i> Linux</strong> - I've been using Linux systems for years now. I've tried out a good handful of OS's such as Arch, Mint, Fedora, Ubuntu - finally resting on Manjaro. I use an Ubuntu build on Linode for my cloud computing needs - which hosts this website. I'm confident working on the command line to perform various system and network administration tasks.
+                    </li>
+                    <li><strong><i class="fas fa-pepper-hot"></i> Flask</strong> - I chose to learn Flask as my Python web framework as it's more modular than Django and I read this would be better for learning the fundamentals of web development with Python. I have no regrets with this choice and love using Flask, but I'm eager to give the more 'batteries included' Django a go soon.  </li>
+                    <li><strong><i class="fab fa-node"></i> Node.js</strong> - While learning JavaScript I also learned the basics of Node.js, such as using NPM and requiring modules, creating a Node.js server, working with the file system, and performing CRUD operations on databases.  </li>
+                    <li><strong><i class="fab fa-neos"></i> NginX</strong> - My go-to web server.  </li>
+                    <li><strong><i class="fas fa-horse"></i> Gunicorn</strong> - Comfortable using Gunicorn, often used to link between NginX and my Flask apps.</li>
+                    <li><strong><i class="fas fa-server"></i> Apache</strong> - I've used this for a number of personal projects which required a server but I now prefer to use NginX for the majority of projects.</li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="nav-data" role="tabpanel" aria-labelledby="nav-data-tab">
+                <ul class='skills'>
+                    <li><strong><i class="fas fa-database"></i> SQL</strong> - I can write SQL to sore, manipulate and retrieve data in databases. SQLite is usually sufficient for my purposes but I've also ohad experience using MySQL and Postgres.</li>
+                    <li><strong><i class="fas fa-table"></i> Pandas </strong>- I'm familiar with the Pandas library and can use it to read, explore, manipulate and clean data. </li>
+                    <li><strong><i class="fas fa-calculator"></i> NumPy </strong>- I'm able utilise NumPy effectively when working with large, multi-dimensional arrays. NumPy has been instrumental in several personal projects, especially for machine learning, image manipulation and computer vision tasks.</li>
+                    <li><strong><i class="fas fa-calculator"></i> Matplotlib </strong>- It's my go to tool for fast and powerful data visulisation.</li>
+                    <li><strong><i class="fas fa-calculator"></i> Bokeh </strong>- When I need to create data visulisations that are interactive and can be shared and displayed in the browser, Bokeh is my library of choice. </li>
+                    <li><strong><i class="fas fa-calculator"></i> Chart.js </strong>- and when there's no python back-end but I want to implement good looking interactive visulisations, I turn to Chart.js</li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="nav-version" role="tabpanel" aria-labelledby="nav-version-tab">
+                <ul class='skills'>
+                    <li><strong><i class="fab fa-git"></i> Git </strong>- I'm confident with basic version control tasks using Git, such as stageing and commiting edits, creating and merging branches, as well as reverting and resetting repositories</li>
+                    <li><strong><i class="fab fa-github"></i> Github </strong>- Familiar with using Github for pulling, pushing, forking and cloning repos.</li>
+                    <li><strong><i class="fab fa-docker"></i> Docker </strong><- I'm able to use Docker for containerization to develop portable, consistent applications in an isolated and predictable environment./li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="nav-also" role="tabpanel" aria-labelledby="nav-also-tab">
+                <ul class='skills'>
+                    <li><strong><i class="fab fa-connectdevelop"></i> Machine Learning </strong>- I'm particularly interested in this field and I'm well acquainted with popular ML tools like Scikit-Learn, Keras, TensorFlow and Pytorch. I've developed both supervised and unsupervised, and batch and online learning models. I enjoy testing and validating to find optimal models and hyperparameters.</li>
+                    <li><strong><i class="fas fa-images"></i> OpenCV</strong> - This is my go-to library for image manipulation and computer vision tasks.</li>
+                    <li><strong><i class="fas fa-laptop-code"></i> IDE's</strong> - I've used a number of popular integrated development environments over the last few years. Now I mainly use VS Code for editing and debugging but I sometimes use Spyder when I need to perform more in-depth data analysis.</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="next-section-link">
+        <a>
+            <p id='projects-scroll-link' class="scroll-link" data-scrollTo="projects-div"><i class="fas fa-caret-down"></i> Projects... <i class="fas fa-caret-down"></i></p>
+        </a>
+    </div>
+</div>
+
+<div class='projects-div' id='projects-div'>
+    <h1>Projects</h1>
+
+    <div class="projects-nav-div">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-sent-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-sent" type="button" role="tab" aria-controls="nav-sent"
+                    aria-selected="true">Sentiment Analysis</button>
+                <button class="nav-link" id="nav-img-mod-tab" data-bs-toggle="tab" data-bs-target="#nav-img-mod"
+                    type="button" role="tab" aria-controls="nav-img-mod" aria-selected="false">Image Modification</button>
+                <button class="nav-link" id="nav-scrabble-tab" data-bs-toggle="tab" data-bs-target="#nav-scrabble"
+                    type="button" role="tab" aria-controls="nav-scrabble" aria-selected="false">Scrabble Cheat</button>
+                <button class="nav-link" id="nav-vacc-tab" data-bs-toggle="tab" data-bs-target="#nav-vacc"
+                    type="button" role="tab" aria-controls="nav-vacc" aria-selected="false">Vaccination Finder</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-sent" role="tabpanel"
+                aria-labelledby="nav-sent-tab">
+                <h3>What does it do?</h3>
+                <p>
+                Categorises tweets as being positive or negative and records a rolling mean as a CSV. This data is then displayed on a line graph using chart.js. In my example I've collected sentiment data on Joe Biden for around a month. The code can be easily edited to collect data for any twitter handle.
+                </p>
+                <h3>How does it work?</h3>
+                <p>
+                The Tweepy python library is used to access the Twitter API to stream tweets. The TextBlob library is then used to perform sentiment analysis on the tweets. Each tweet is given a value between 1 and -1 depending on how positive or negative the analysis determines the tweet to be. A rolling mean of 200 tweets is then calculated and the value is output to a CSV file along with a timestamp.
+                </p>
+                <p>
+                The data in the CSV is converted to two JavaScript arrays, one containing the mean sentiment, the other containing the timestamps. This is then fed into the Chart.js data visualization library which renders a responsive line graph to the browser.
+                </p>
+                <h3>Does it work?</h3>
+                <p>
+                This is a blunt instrument for measuring sentiment. And given the granularity of the data, it's not easy to use other measures, such as opinion polling, to draw conclusions on the accuraccy of the analysis.
+                </p>
+                <p>
+                However, in my data, there does appear to be a correlation between the results of the analysis and key actions of Biden and his administration. For example, the highest peak in positive sentiment comes soon after Biden announces plans for a full withdrawal of US troops from Afghanistan, and the lowest trough comes after Biden makes a speach acknowledging systemic racism within parts of the US justice system following the conviction of Derek Chauvin for the murder of George Floyd.
+                </p>
+                <hr>
+                <div class='git-links'>
+                    <a href='https://ed100miles.github.io/sentBlobJS/' rel="noreferrer" target='_blank'>
+                      <i class="fas fa-external-link-alt"></i>
+                        Open project in a new tab
+                    </a>
+                    <a href='https://github.com/ed100miles/sentBlobJS' rel="noreferrer" target='_blank'>
+                      <i class="fab fa-github"></i>
+                      Source Code
+                    </a>
+                </div>
+
+                <iframe src='https://ed100miles.github.io/sentBlobJS/' title='sentIframe' class='sent-frame' frameBorder='0'></iframe>
+
+            </div>
+            <div class="tab-pane fade" id="nav-img-mod" role="tabpanel" aria-labelledby="nav-img-mod-tab">
+                <h3>What does it do?</h3>
+
+                <p>A flask app hosted on Heroku that allows the user to upload an image file and then perform a variety of opperations on their origional image. Operations include changing the brightness, saturation, blur/sharpness, orientation and intensity of red, green and blue colours.</p>
+
+                <h3>How does it work?</h3>
+
+                <p>The user chooses an image to upload, this image is sent to the server, converted to a base64 string and sent back to the client side to be rendered.</p>
+                <p>Sliders then appear to change values for different operations to perform on the image. When a slider value is changed, the <i>imgMod()</i> function in the <i>'app.js'</i> file is called. The values of the different image operation sliders, and the origional image base64 string, are sent as JSON via the Fetch API to the server. The server then converts the image base64 to a numpy array. The opencv-python library is then used to perform the various image operations on the numpy array. The array is then converted back to a base64 string and sent as a response back to the client, where the new string is rendered. The Fetch API alows this process to happen asynchronously.</p>
+                <hr>
+                <div class='git-links'>
+                    <a href='https://imagemodapp.herokuapp.com/upload-image' rel="noreferrer" target='_blank'>
+                      <i class="fas fa-external-link-alt"></i>
+                         Open project in a new tab
+                    </a>
+                    <a href='https://github.com/ed100miles/ImageModder' rel="noreferrer" target='_blank'>
+                      <i class="fab fa-github"></i>
+                       Source Code
+                    </a>
+                </div>
+                <iframe src='https://imagemodapp.herokuapp.com/upload-image' title='ImgModIframe' class='img-mod-frame' frameBorder='0' id='imgModIframe' ></iframe>
+            </div>
+            <div class="tab-pane fade" id="nav-scrabble" role="tabpanel" aria-labelledby="nav-scrabble-tab">
+                <h3>What does it do?</h3>
+                <p>The user enters their scrabble letters in the form and (if there's letters already on the board) can select which letter they want to play off. The app will then produce a list of words that it's possible for the user to play, along with their base score. The words can be clicked on and a definition of the word will be show.</p>
+                <p>Once the user has chosen which word to play, they select on the board where they want to lay the first letter, enter the word they want to play, and then select if they want to play the word down or across.</p>
+                <h3>How does it work?</h3>
+                <p>The tricky bit is taking the users letters and the selected board letter and seeing if they match any of the valid scrabble words. A list of valid scrabble words and their definitions are available online, these have been formed into a JavaScript object that gets imported into the main script <i>'index.js'</i>.</p>
+                <p>The most performant way I found for checking if a valid word is present in the input letters was to create an object with letters as the key and the value representing the number of times that letter is present. For example the object for the word <i>'scrabble'</i> would be: {'{'}"s":1, "c":1, "r":1, "a":1, "b":2, "l":1, "e":1{'}'}. The script then iterates through each of the ~280,000 valid scrabble words building an object and seeing if the user letters object contains all the letter keys and if so, whether the value is greater than or equal to the valid word objects corresponding value. If these tests are met, the valid word is appended to the matching words list which is displayed on the browser once the process is complete.</p>
+                <hr>
+                <div class='git-links'>
+                    <a href='https://ed100miles.github.io/scrabbleJS/' rel="noreferrer" target='_blank'>
+                      <i class="fas fa-external-link-alt"></i>
+                                    Open project in a new tab
+                                </a>
+                    <a href='https://github.com/ed100miles/scrabbleJS' rel="noreferrer" target='_blank'>
+                      <i class="fab fa-github"></i>
+                                Source Code
+                                </a>
+                </div>
+                <iframe src='https://ed100miles.github.io/scrabbleJS/' title='scrabbleIframe' class='scrabble-frame' frameBorder='0' id='scrabbleIframe' scrolling='no' ></iframe>
+            </div>
+            <div class="tab-pane fade" id="nav-vacc" role="tabpanel" aria-labelledby="nav-vacc-tab">
+                <h3>What does it do?</h3>
+                <p>The user enters their postcode, and their nearest covid-19 vaccine centre is displayed along with a link to google
+                    maps showing the location.</p>
+                <h3>How does it work?</h3>
+                <p>Only vanilla JavaScript, HTML and CSS are used (and a bit of python for initial data wrangling / prototyping).</p>
+                <p>Two datasets were used for this project:</p>
+                <ul>
+                    <li>The list of Covid-19 vaccination sites available on the NHS England website (correct as of 21 May 2021).</li>
+                    <li>A list of 1.7m postcodes in the UK and their approximate longitudes and latitudes.</li>
+                </ul>
+                <p>Longs and Lats were then added to the list of vaccine sites. The vaccination sites data is imported when the site
+                    loads and the postcode + long/lat data is loaded dynamically when the user enters their postcode.</p>
+                <p>After the user enters their postcode, a function is called to reformat the postcode if it's entered with any errors
+                    (incorrect spacing or lower case letters). The users longitude and latitude is then retrieved from the dataset. Then
+                    the program iterates through all the vaccination sites, calculating the hypotenuse of the difference between the
+                    users and each vaccine centre's longitude and latitude. The vaccine centre with the shortest hypotenuse from the
+                    users location is then returned along with a link to google maps formatted query the google maps API with the
+                    vaccine site name and it's postcode.</p>
+                <hr>
+                <div class='git-links'>
+                    <a href='https://ed100miles.github.io/NearestVaccineCentre/' rel="noreferrer" target='_blank'>
+                      <i class="fas fa-external-link-alt"></i>
+                                Open project in a new tab
+                            </a>
+                    <a href='https://github.com/ed100miles/NearestVaccineCentre' rel="noreferrer" target='_blank'>
+                      <i class="fab fa-github"></i>
+                            Source Code
+                            </a>
+                </div>
+                <iframe src='https://ed100miles.github.io/NearestVaccineCentre/' title='vacc-iframe' class='vacc-frame' frameBorder='0'></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class='footer-div'>
+    <a href='mailto:edmilestech@gmail.com'>edmilestech@gmail.com</a>
+    <a id='to-top-scroll-link' data-scrollto="intro-div" class="scroll-link">
+        <i class="fas fa-caret-up"></i> Back to Top <i class="fas fa-caret-up"></i>
+    </a>
+    <div class='foot-media-links'>
+        <a href='mailto:edmilestech@gmail.com'>
+            <i class="far fa-envelope"></i>
+        </a>
+        <a href='https://www.linkedin.com/in/edward-miles-407349143'
+            target='_blank'
+            rel="noreferrer">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href='https://github.com/ed100miles'
+            target='_blank'
+            rel="noreferrer">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+</div>
+
+{% endblock %}

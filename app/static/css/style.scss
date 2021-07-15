@@ -1,0 +1,272 @@
+
+
+$nav-bg: rgb(6, 55, 110);
+$off-white-text: #EEFBFB;
+$bg-color1: #203647;
+$bg-color2: #164664;
+
+// bootstrap nav 40px collapsed
+
+$main-font: 'Ubuntu Mono', serif;
+$title-font: 'JetBrains Mono', serif;
+
+$header-font-size: 8vmin;
+$h3-font-size: 4vmin;
+$text-font-size: 3vmin;
+$nav-font-size: 1.8vmin;
+
+body{
+    scroll-behavior: smooth;
+    background-color: $bg-color1;
+    color: $off-white-text;
+    font-family: $main-font;
+    h4{
+        font-size: $text-font-size;
+        text-align: center;
+        justify-content: center;
+    }
+}
+.navbar {
+    border-bottom: 1px solid white;
+    background-color: $nav-bg;
+    .navbar-brand {
+        color: $off-white-text;
+        font-family: $title-font;
+    }
+    .navbar-brand:hover{
+        color: $off-white-text;
+    }
+    #nav-toggle-icon{
+        background-color: $off-white-text;
+    }
+    .navbar-nav{
+        .nav-item{
+            .nav-link{
+                color: $off-white-text;
+            }
+            .nav-link:hover{
+                color: $off-white-text;
+                // font-weight: bold;
+                text-decoration: underline;
+            }
+        }
+    }
+    .media-link{
+        a{
+            color: $off-white-text;
+            svg:hover{
+            transform: rotate(360deg);
+            transition: all 0.5s ease-in-out 0s; 
+            }
+        }
+    }
+}
+
+.intro-div{
+    height: calc(100vh - 49px);
+    margin-top: 49px;
+    .intro-top{
+        padding: 5vmin;
+        height: 90%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        h1 {
+            font-family: $title-font;
+            font-size: $header-font-size;
+            text-align: center;
+        }
+        .me-img{
+            max-height: 50vh;
+            max-width: 50vw;
+            height: auto;
+            width: auto;
+            border-radius: 1rem;
+        }
+        .type-div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .typed-content{
+                position: relative;
+                margin-left: 1vw;
+            }
+            .typed-content::after{
+                content: "";
+                position:absolute;
+                width: 1px;
+                height: 90%;
+                right: -3px;
+                border-right: 2px solid $off-white-text;
+                animation: cursor 0.8s infinite ease;
+            }
+        }
+    }
+}
+@keyframes cursor {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
+.next-section-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    text-align: center;
+    font-size: $text-font-size;
+}
+
+.about-div{
+    height: calc(100vh - 49px);
+    background-color: $bg-color2;
+    h1{
+        height: 15%;
+        padding-top: 5vh;
+        font-size: $header-font-size;
+        text-align: center;
+    }
+    .about-blurb{
+        height: 75%;
+        padding: 5vmin;
+        font-size: $text-font-size;
+    }
+}
+
+.skills-div{
+    height: calc(100vh - 49px);
+    h1{
+        height: 15%;
+        padding-top: 5vh;
+        font-size: $header-font-size;
+        text-align: center;
+    }
+    .skills-nav-div{
+        height: 75%;
+    }
+    .skills{
+        padding-top: 3vh;
+        font-size: $nav-font-size;
+    }
+    li{
+        padding-left: 1vw;
+        padding-right: 5vw;
+        padding-bottom: 1vh;
+        list-style-type: none;
+    }
+    .nav-link{
+        color: $off-white-text;
+        font-size: $text-font-size;
+        border-color: $off-white-text;
+        border-style: solid;
+        border-width: 1px;
+        margin-left: 0.5vw;
+        margin-right: 0.5vw;
+    }
+    .nav-tabs{
+        justify-content: space-around;
+    }
+}
+
+.projects-div{
+    min-height: calc(100vh - 49px);
+    background-color: $bg-color2;
+    h1{
+        height: 15%;
+        padding-top: 5vh;
+        font-size: $header-font-size;
+        text-align: center;
+    }
+    .nav-tabs{
+        justify-content: space-around;
+    }
+    .nav-link{
+        color: $off-white-text;
+        font-size: $text-font-size;
+        border-color: $off-white-text;
+        border-style: solid;
+        border-width: 1px;
+        margin-left: 0.5vw;
+        margin-right: 0.5vw;
+    }
+    .tab-pane{
+        padding: 3vmin;
+        font-size: $text-font-size;
+        h3 {
+            font-size: $h3-font-size;
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+    .sent-frame{
+        width: 80vw;
+        min-height:35vh;
+        background-color: $off-white-text;
+        border-radius: 1vmin;
+        display: block;
+        margin: 0 auto;
+    }
+    .git-links{
+        display: flex;
+        justify-content: space-evenly;
+        padding-bottom: 2vh;
+        a{
+            color: $off-white-text;
+            text-decoration: none;
+        }
+    }
+    .img-mod-frame{
+        width: 80vw;
+        min-height: 35vh;
+        background-color: $off-white-text;
+        border-radius: 1vmin;
+        display: block;
+        margin: 0 auto;
+    }
+    .scrabble-frame{
+        width: 80vw;
+        min-height: 35vh;
+        border-radius: 1vmin;
+        display: block;
+        margin: 0 auto;
+    }
+    .vacc-frame{
+        width: 80vw;
+        min-height: 35vh;
+        background-color: $off-white-text;
+        border-radius: 1vmin;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.scroll-link:hover{
+    cursor: pointer;
+    animation: textGrow 1s infinite linear;
+}
+@keyframes textGrow {
+    0% {font-size: 100%;}
+    25% {font-size: 110%;}
+    50% {font-size: 100%;}
+    75% {font-size: 90%;}
+    100% {font-size: 100%;}
+}
+
+.footer-div{
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: grey;
+    padding: 1vw;
+    a {
+        color: $off-white-text;
+        text-decoration: none;
+        text-align: center;
+        font-size: $text-font-size;
+        width: 33vw;
+    }
+    .foot-media-links{
+        width: 33vw;
+        text-align: center;
+    }
+}

@@ -1,2 +1,2 @@
-# FlaskPortfolioSite
-Flask app website portfolio
+# FlaskBoilerplate
+Boilerplate code for flask applications
