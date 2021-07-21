@@ -362,4 +362,40 @@ body h4 {
   width: 33vw;
   text-align: center;
 }
+
+.mod_div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  /* overflow: scroll; */
+}
+
+.user_img {
+  max-width: 48vw;
+  max-height: 48vh;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.mod_img {
+  max-width: 48vw;
+  max-height: 48vh;
+  padding: 2vw;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.wrong_ext {
+  color: red;
+}
 /*# sourceMappingURL=style.css.map */
