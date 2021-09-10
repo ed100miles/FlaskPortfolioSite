@@ -302,3 +302,97 @@ body{
 .wrong_ext{
     color: red;
 }
+
+
+// Scrabble CSS::
+$primary-bg: rgb(122, 149, 209);
+$square-bg: beige;
+$square-hover-bg: rgb(72, 100, 44);
+
+
+.board_and_words{
+    display: flex;
+    justify-content: space-around;
+    .board{
+        margin-left: 1vmin;
+        // margin-top: 5vmin;
+        min-width: 50vmin;
+        min-height: 50vmin;
+        width: 50vmin;
+        height: 50vmin;
+        background-color: black;
+        display: grid;
+        grid-template-columns: repeat(15, 1fr);
+        border: bisque solid 2vmin;
+        .square{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+            text-align: center;
+            background-color: $square-bg;
+            border: black solid 1px;
+            font-size: 1.5vmin;
+            color: $square-bg;
+            &:hover{
+                background-color: $square-hover-bg;
+                color: $square-hover-bg;
+                cursor: pointer;
+            }
+        }
+        .selectedSquare{
+            background-color: yellow;
+        }
+        .typed_square{
+            color: black;
+        }
+    }
+    .found_words{
+        background-color: $primary-bg;
+        color: wheat;
+        text-align: center;
+        margin-left: 1vmin;
+        margin-top: 1px;
+        min-width: 40vmin;
+        min-height: 50vmin;
+        width: 40vmin;
+        height: 50vmin;
+        border-radius: 5px;
+        overflow: scroll;
+        overflow-x: hidden;
+        padding-left: 2vmin;
+        font-size: 2.5vmin;
+    }
+    .found_words:hover{
+        cursor: pointer;
+    }
+}
+
+.form_container{
+    padding-top: 10vh;
+    display: flex;
+    justify-content: space-around;
+    .button{
+        border-radius: 1vmin;
+        background-color: $primary-bg;
+        font-size: 2vmin;
+        height: 5vmin;
+        width: 20vmin;
+    }
+    .clicked{
+        background-color: yellow;
+    }
+    .user_letters{
+        font-size: 2vmin;
+    }
+}
+
+.definition_container{
+    margin: auto;
+    background-color: $primary-bg;
+    color: wheat;
+    text-align: center;
+    width: 80vw;
+    border-radius: 5px;
+}
+

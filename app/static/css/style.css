@@ -398,4 +398,113 @@ body h4 {
 .wrong_ext {
   color: red;
 }
+
+.board_and_words {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.board_and_words .board {
+  margin-left: 1vmin;
+  min-width: 50vmin;
+  min-height: 50vmin;
+  width: 50vmin;
+  height: 50vmin;
+  background-color: black;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[15];
+      grid-template-columns: repeat(15, 1fr);
+  border: bisque solid 2vmin;
+}
+
+.board_and_words .board .square {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  white-space: nowrap;
+  text-align: center;
+  background-color: beige;
+  border: black solid 1px;
+  font-size: 1.5vmin;
+  color: beige;
+}
+
+.board_and_words .board .square:hover {
+  background-color: #48642c;
+  color: #48642c;
+  cursor: pointer;
+}
+
+.board_and_words .board .selectedSquare {
+  background-color: yellow;
+}
+
+.board_and_words .board .typed_square {
+  color: black;
+}
+
+.board_and_words .found_words {
+  background-color: #7a95d1;
+  color: wheat;
+  text-align: center;
+  margin-left: 1vmin;
+  margin-top: 1px;
+  min-width: 40vmin;
+  min-height: 50vmin;
+  width: 40vmin;
+  height: 50vmin;
+  border-radius: 5px;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-left: 2vmin;
+  font-size: 2.5vmin;
+}
+
+.board_and_words .found_words:hover {
+  cursor: pointer;
+}
+
+.form_container {
+  padding-top: 10vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.form_container .button {
+  border-radius: 1vmin;
+  background-color: #7a95d1;
+  font-size: 2vmin;
+  height: 5vmin;
+  width: 20vmin;
+}
+
+.form_container .clicked {
+  background-color: yellow;
+}
+
+.form_container .user_letters {
+  font-size: 2vmin;
+}
+
+.definition_container {
+  margin: auto;
+  background-color: #7a95d1;
+  color: wheat;
+  text-align: center;
+  width: 80vw;
+  border-radius: 5px;
+}
 /*# sourceMappingURL=style.css.map */
