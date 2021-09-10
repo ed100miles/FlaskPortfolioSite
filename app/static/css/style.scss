@@ -196,6 +196,15 @@ body{
             text-align: center;
             font-weight: bold;
         }
+        .trie-img{
+            background-color: white;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50vmin;
+            padding: 1vmin;
+            border-radius: 1vmin;
+        }
     }
     .sent-frame{
         width: 80vw;
@@ -262,7 +271,7 @@ body{
         color: $off-white-text;
         text-decoration: none;
         text-align: center;
-        font-size: $text-font-size;
+        font-size: $nav-font-size;
         width: 33vw;
     }
     .foot-media-links{
@@ -270,8 +279,6 @@ body{
         text-align: center;
     }
 }
-
-
 
 
 // Img Mod Css

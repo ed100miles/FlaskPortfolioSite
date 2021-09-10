@@ -243,6 +243,16 @@ body h4 {
   font-weight: bold;
 }
 
+.projects-div .tab-pane .trie-img {
+  background-color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50vmin;
+  padding: 1vmin;
+  border-radius: 1vmin;
+}
+
 .projects-div .sent-frame {
   width: 80vw;
   min-height: 50vh;
@@ -354,7 +364,7 @@ body h4 {
   color: #EEFBFB;
   text-decoration: none;
   text-align: center;
-  font-size: 3vmin;
+  font-size: 1.8vmin;
   width: 33vw;
 }
 

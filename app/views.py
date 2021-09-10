@@ -61,3 +61,4 @@ def uploadimage():
             json_response = make_response(jsonify(mod_img_b64), 200)
             return json_response
     return render_template('upload-image.html')
+
