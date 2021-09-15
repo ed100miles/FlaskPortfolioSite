@@ -22,7 +22,7 @@ function imgMod(){
         rotation: rotation
     }
 
-    fetch(`${window.origin}/upload-image`,{
+    fetch(`${window.origin}/`,{
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(clientInfo),

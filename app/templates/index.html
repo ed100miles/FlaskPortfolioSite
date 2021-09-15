@@ -197,24 +197,29 @@
 </div>
 
 <div class='projects-div' id='projects-div'>
+
     <h1>Projects</h1>
 
     <div class="projects-nav-div">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-sent-tab" data-bs-toggle="tab" data-bs-target="#nav-sent"
-                    type="button" role="tab" aria-controls="nav-sent" aria-selected="true">Sentiment Analysis</button>
-                <button class="nav-link" id="nav-img-mod-tab" data-bs-toggle="tab" data-bs-target="#nav-img-mod"
-                    type="button" role="tab" aria-controls="nav-img-mod" aria-selected="false">Image
+                <button class="nav-link active project-link" id="nav-sent-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-sent" type="button" role="tab" aria-controls="nav-sent"
+                    aria-selected="true">Sentiment Analysis</button>
+                <button class="nav-link project-link" id="nav-img-mod-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-img-mod" type="button" role="tab" aria-controls="nav-img-mod"
+                    aria-selected="false">Image
                     Modification</button>
-                <button class="nav-link" id="nav-scrabble-tab" data-bs-toggle="tab" data-bs-target="#nav-scrabble"
-                    type="button" role="tab" aria-controls="nav-scrabble" aria-selected="false">Scrabble Cheat</button>
-                <button class="nav-link" id="nav-vacc-tab" data-bs-toggle="tab" data-bs-target="#nav-vacc" type="button"
-                    role="tab" aria-controls="nav-vacc" aria-selected="false">Vaccination Finder</button>
+                <button class="nav-link project-link" id="nav-scrabble-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-scrabble" type="button" role="tab" aria-controls="nav-scrabble"
+                    aria-selected="false">Scrabble Cheat</button>
+                <button class="nav-link project-link" id="nav-vacc-tab" data-bs-toggle="tab" data-bs-target="#nav-vacc"
+                    type="button" role="tab" aria-controls="nav-vacc" aria-selected="false">Vaccination Finder</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-sent" role="tabpanel" aria-labelledby="nav-sent-tab">
+            <div class="tab-pane fade show active project-pane" id="nav-sent" role="tabpanel"
+                aria-labelledby="nav-sent-tab">
                 <h3>What does it do?</h3>
                 <p>
                     Categorises tweets as being positive or negative and records a rolling mean as a CSV. This data is
@@ -262,7 +267,7 @@
                     frameBorder='0'></iframe>
 
             </div>
-            <div class="tab-pane fade" id="nav-img-mod" role="tabpanel" aria-labelledby="nav-img-mod-tab">
+            <div class="tab-pane fade project-pane" id="nav-img-mod" role="tabpanel" aria-labelledby="nav-img-mod-tab">
                 <h3>What does it do?</h3>
 
                 <p>A flask app hosted on Heroku that allows the user to upload an image file and then perform a variety
@@ -291,11 +296,119 @@
                         Source Code
                     </a>
                 </div>
-                <iframe src='http://127.0.0.1:5000/upload-image' title='ImgModIframe' class='img-mod-frame'
-                    frameBorder='0' id='imgModIframe'></iframe>
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <a name='img_anchor'></a>
+
+                            <hr>
+                            <form action="/" method='POST' enctype='multipart/form-data'>
+                                <div class="form-group">
+                                    <h3>Select an Image<p>(Up to 1MB)</p>
+                                    </h3>
+                                    {% if wrong_ext %}
+                                    <p class='wrong_ext'>.jpeg, .jpg, .png, or .gif files only please</p>
+                                    {% endif %}
+                                    {% if big_file %}
+                                    <p class="wrong_ext">Sorry, that file exceeds 1MB</p>
+                                    {% endif %}
+                                    <div class="custom-file">
+                                        <input type="file" class='custom-file-input' name='image' id='image'>
+                                    </div>
+                                </div>
+                                <br>
+                                <button class='btn btn-primary' type='submit'>Load New Image</button>
+                            </form>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+
+                {% if image %}
+
+                <div class='mod_div'>
+                    <div>
+                        <h4>Modified Image</h4>
+                        <img src="data:image/jpeg;base64, {{image}}" class='mod_img' id='mod_img'>
+                    </div>
+
+                    <div id='mod_tools'>
+                        <h4>Mod Tools</h4>
+                        <div class="form-group">
+                            <label>Brightness</label>
+                            <input type='range' class='form-range' min='0' max='2' step='0.001' id='brightness'
+                                onchange='imgMod()'>
+                        </div>
+                        <div class="form-group">
+                            <label>Saturation</label>
+                            <input type='range' class='form-range' min='0' max='2' step='0.001' id='saturation'
+                                onchange='imgMod()'>
+                        </div>
+                        <div class="form-group">
+                            <label>Blur/Sharpen</label>
+                            <input type='range' class='form-range' min='-5' max='5' step='0.001' id='blur_sharp'
+                                onchange='imgMod()'>
+                        </div>
+                        <div class="form-group">
+                            <label>Redness</label>
+                            <input type='range' class='form-range' min='0' max='2' step='0.001' id='redness'
+                                onchange='imgMod()'>
+                        </div>
+                        <div class="form-group">
+                            <label>Greenness</label>
+                            <input type='range' class='form-range' min='0' max='2' step='0.001' id='greenness'
+                                onchange='imgMod()'>
+                        </div>
+                        <div class="form-group">
+                            <label>Blueness</label>
+                            <input type='range' class='form-range' min='0' max='2' step='0.001' id='blueness'
+                                onchange='imgMod()'>
+                        </div>
+                        <div class="form-group">
+                            <label>Rotate</label>
+                            <input type='range' class='form-range' min='-2' max='2' step='1' id='rotation'
+                                onchange='imgMod()'>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div>
+                    <h4>Original Image</h4>
+                    <img src="data:image/jpeg;base64, {{image}}" class='user_img' id='user_img'>
+                </div>
+
+
+                <script>
+                    document.addEventListener("DOMContentLoaded", function () {
+                        let project_panes = document.getElementsByClassName('project-pane')
+                        let project_links = document.getElementsByClassName('project-link')
+                        for (let element of project_panes) {
+                            element.classList.remove('active')
+                        }
+                        for (let element of project_links) {
+                            element.classList.remove('active')
+                        }
+                        console.log(document.getElementById('nav-img-mod-tab'))
+                        console.log(document.getElementById('nav-img-mod'))
+
+                        document.getElementById('nav-img-mod-tab').classList.add('active')
+                        document.getElementById('nav-img-mod').classList.add('active')
+                        document.getElementById('nav-img-mod').classList.add('show')
+                        window.location.href = '#img_anchor'
+                    });
+
+                </script>
+
+                {% endif %}
+
 
             </div>
-            <div class="tab-pane fade" id="nav-scrabble" role="tabpanel" aria-labelledby="nav-scrabble-tab">
+            <div class="tab-pane fade project-pane" id="nav-scrabble" role="tabpanel"
+                aria-labelledby="nav-scrabble-tab">
                 <div>
                     <div class='board_and_words'>
                         <div class="board"></div>
@@ -349,9 +462,9 @@
                     Valid words a user can play are then returned to the browser and rendered.
                 </p>
                 <hr>
-                
+
             </div>
-            <div class="tab-pane fade" id="nav-vacc" role="tabpanel" aria-labelledby="nav-vacc-tab">
+            <div class="tab-pane fade project-pane" id="nav-vacc" role="tabpanel" aria-labelledby="nav-vacc-tab">
                 <h3>What does it do?</h3>
                 <p>The user enters their postcode, and their nearest covid-19 vaccine centre is displayed along with a
                     link to google
