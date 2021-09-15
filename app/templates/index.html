@@ -380,8 +380,8 @@
                     <h4>Original Image</h4>
                     <img src="data:image/jpeg;base64, {{image}}" class='user_img' id='user_img'>
                 </div>
-
-
+                {% endif %}
+                {% if scrollToMod %}
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
                         let project_panes = document.getElementsByClassName('project-pane')
@@ -402,7 +402,6 @@
                     });
 
                 </script>
-
                 {% endif %}
 
 
