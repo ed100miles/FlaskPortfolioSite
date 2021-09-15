@@ -1,0 +1,4 @@
+venv
+error_logs.txt
+__pychache__
+app/__pychache__
