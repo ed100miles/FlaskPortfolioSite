@@ -20,15 +20,10 @@ def index():
         possible_words = scrabble.find_words(json_body['board_dict'], json_body['userLetters'])
         json_response = make_response(jsonify(possible_words), 200)
         return json_response
-    # if True:
-    print(str(request.data[:7]))
-    # if image mod request from json:
     req = request.get_json()
-    # print(req)
     if req != None:
         return imgMods.process_request(req)
     if request.method == 'POST' and request.files['image']:
-        print('triggered!')
         try:
             ok_file_exts = ['jpg', 'jpeg', 'png', 'gif', 'JPG', 'JPEG', 'PNG', 'GIF']
             wrong_ext = False
@@ -38,8 +33,7 @@ def index():
                 base_img = imgMods.upload_img_to_base64(img)
                 return render_template('index.html', image=base_img, scrollToMod=True)
             else:
-                wrong_ext = True
-                return render_template('index.html', wrong_ext = wrong_ext, scrollToMod=True)
+                return render_template('index.html', wrong_ext = True, scrollToMod=True)
         except Exception as e: # TODO: fix this awful exception handling!!!
             if str(e)[:3] == '413': # if 413 - Req Entity Too Large:
                 return render_template('index.html', big_file=True, scrollToMod=True)
@@ -52,18 +46,16 @@ def index():
 @app.route('/upload-image', methods=['POST', 'GET'])
 def uploadimage():
     # test for POST for mod image:
-    if request.method == 'POST' and str(request.data[:7])[4:7] == 'img':
+    if request.method == 'POST' and request.files['image']:
         try:
             ok_file_exts = ['jpg', 'jpeg', 'png', 'gif', 'JPG', 'JPEG', 'PNG', 'GIF']
-            wrong_ext = False
             image = request.files['image']
             if image.filename != '' and image.filename.split('.')[-1] in ok_file_exts:
                 img = image.read()
                 base_img = imgMods.upload_img_to_base64(img)
                 return render_template('upload-image.html', image=base_img)
             else:
-                wrong_ext = True
-                return render_template('upload-image.html', wrong_ext = wrong_ext)
+                return render_template('upload-image.html', wrong_ext = True)
         except Exception as e: # TODO: fix this awful exception handling!!!
             if str(e)[:3] == '413': # if 413 - Req Entity Too Large:
                 return render_template('upload-image.html', big_file=True)
