@@ -95,3 +95,9 @@ def uploadimage():
             return imgMods.process_request(req)
     return render_template('upload-image.html')
 
+@app.route('/underwriter', methods=['POST'])
+def underwriter():
+    if request.method == 'POST':
+        print(request.data)
+        json_response = make_response(jsonify('template response'), 200)
+        return json_response

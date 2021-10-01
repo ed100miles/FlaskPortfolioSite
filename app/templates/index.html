@@ -220,8 +220,9 @@
                     aria-selected="false">Scrabble Cheat</button>
                 <button class="nav-link project-link" id="nav-vacc-tab" data-bs-toggle="tab" data-bs-target="#nav-vacc"
                     type="button" role="tab" aria-controls="nav-vacc" aria-selected="false">Vaccination Finder</button>
-                <button class="nav-link project-link" id="nav-underw-tab" data-bs-toggle="tab" data-bs-target="#nav-underw"
-                    type="button" role="tab" aria-controls="nav-underw" aria-selected="false">Underwriter</button>
+                <button class="nav-link project-link" id="nav-underw-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-underw" type="button" role="tab" aria-controls="nav-underw"
+                    aria-selected="false">Underwriter</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
@@ -515,180 +516,180 @@
             </div>
 
 
-
-
-
             <div class="tab-pane fade project-pane" id="nav-underw" role="tabpanel" aria-labelledby="nav-underw-tab">
-                
+
                 <h4>Risk Form</h4>
-        <div id='risk_form' style="display: flex; justify-content: space-around;">
-            <div class="sliders" style="max-width: 40vw;">
-                <div class="form-group">
-                    <span>Age: <span id='age_val'>16</span></span>
-                    <input type='range' class='form-range' min='16' value="16" max='81' step='1' id='age_input'
-                        onmousemove="update_label(this)" data-label_id='age_val' data-label_max='81+'>
-                </div>
-                <div class="form-group">
-                    <span>Annual Income: $<span id='income_val'>0</span></span>
-                    <input type='range' class='form-range' min='0' value="0" max='370000' step='1000' id='income_input'
-                        onmousemove="update_label(this)" data-label_id='income_val' data-label_max="370000+">
-                </div>
-                <div class="form-group">
-                    <span>Owned House Price: $<span id='house_val'>0</span></span>
-                    <input type='range' class='form-range' min='0' value="0" max='885000' step='1000' id='house_input'
-                        onmousemove="update_label(this)" data-label_id='house_val' data-label_max="885000+">
-                </div>
-                <div class="form-group">
-                    <span>Car Value: $<span id='car_val'>1500</span></span>
-                    <input type='range' class='form-range' min='1500' value="1500" max='68000' step='500' id='car_input'
-                        onmousemove="update_label(this)" data-label_id='car_val' data-label_max="68000+">
-                </div>
-                <div class="form-group">
-                    <span>Car Age (years): <span id='car_age_val'>1</span></span>
-                    <input type='range' class='form-range' min='1' value="1" max='28' step='1' id='car_age_input'
-                        onmousemove="update_label(this)" data-label_id='car_age_val' data-label_max="28+">
-                </div>
-                <div class="form-group">
-                    <span>Previous Claim Value: $<span id='prev_clm_val'>0</span></span>
-                    <input type='range' class='form-range' min='0' value="0" max='57000' step='100' id='prev_clm_input'
-                        onmousemove="update_label(this)" data-label_id='prev_clm_val' data-label_max="57000+">
-                </div>
-                <div class="form-group">
-                    <span>Years on same policy: <span id='tif_val'>1</span></span>
-                    <input type='range' class='form-range' min='1' value="1" max='25' step='1' id='tif_input'
-                        onmousemove="update_label(this)" data-label_id='tif_val' data-label_max="25+">
-                </div>
-                <div class="form-group">
-                    <span>Points on license: <span id='pts_val'>0</span></span>
-                    <input type='range' class='form-range' min='0' value="0" max='13' step='1' id='pts_input'
-                        onmousemove="update_label(this)" data-label_id='pts_val' data-label_max="13+">
-                </div>
-                <div class="form-group">
-                    <span>Child Drivers: <span id='kidsdriv_val'>0</span></span>
-                    <input type='range' class='form-range' min='0' value="0" max='4' step='1' id='kidsdriv_input'
-                        onmousemove="update_label(this)" data-label_id='kidsdriv_val' data-label_max="4+">
-                </div>
-                <div class="form-group">
-                    <span>Children at home: <span id='child_at_home_val'>0</span></span>
-                    <input type='range' class='form-range' min='0' value="0" max='5' step='1' id='child_at_home_input'
-                        onmousemove="update_label(this)" data-label_id='child_at_home_val' data-label_max="5+">
-                </div>
-                <div class="form-group">
-                    <span>Hours driving per week: <span id='travtime_val'>5</span></span>
-                    <input type='range' class='form-range' min='5' value="5" max='140' step='1' id='travtime_input'
-                        onmousemove="update_label(this)" data-label_id='travtime_val' data-label_max="140+">
-                </div>
-                <div class="form-group">
-                    <span>Years at same job: <span id='yoj_val'>0</span></span>
-                    <input type='range' class='form-range' min='0' value="0" max='23' step='1' id='yoj_input'
-                        onmousemove="update_label(this)" data-label_id='yoj_val' data-label_max="23+">
-                </div>
-            </div>
-            <div class='non-sliders' style="max-width: 40vw; ">
-
-                <div class="form-group">
-                    <label for="car_type_input">Car Type:</label>
-                    <select class="form-control" id="car_type_input">
-                        <option>SUV</option>
-                        <option>Sports Car</option>
-                        <option>Van</option>
-                        <option>Minivan</option>
-                        <option>Pickup</option>
-                        <option>Panel Truck</option>
-                    </select>
-                </div>
-
-                <br>
-
-                <div class="form-group">
-                    <label for="occupation_input">Occupation:</label>
-                    <select class="form-control" id="occupation_input">
-                        <option>Student</option>
-                        <option>Blue Collar</option>
-                        <option>Professional</option>
-                        <option>Clerical</option>
-                        <option>Manager</option>
-                        <option>Home Maker</option>
-                        <option>Lawyer</option>
-                        <option>Doctor</option>
-                        <option>Unemployed / Other</option>
-                    </select>
-                </div>
-
-                <br>
-
-                <div class="form-group">
-                    <label for="education_input">Education:</label>
-                    <select class="form-control" id="education_input">
-                        <option>&ltHigh School</option>
-                        <option>High School</option>
-                        <option>Bachelors</option>
-                        <option>Masters</option>
-                        <option>PhD</option>
-                    </select>
-                </div>
-
-                <br>
-
-                <div class='form-group'>
-                    <label>Do you drive the car for commercial purposes?: &emsp;</label>
-                    <br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="commercial-priv-radio" id="private_radio"
-                            value="private">
-                        <label class="form-check-label" for="private_radio">No</label>
+                <div id='risk_form' style="display: flex; justify-content: space-around;">
+                    <div class="sliders" style="max-width: 40vw;">
+                        <div class="form-group">
+                            <span>Age: <span id='age_val'>16</span></span>
+                            <input type='range' class='form-range' min='16' value="16" max='81' step='1' id='age_input'
+                                onmousemove="update_label(this)" data-label_id='age_val' data-label_max='81+'>
+                        </div>
+                        <div class="form-group">
+                            <span>Annual Income: $<span id='income_val'>0</span></span>
+                            <input type='range' class='form-range' min='0' value="0" max='370000' step='1000'
+                                id='income_input' onmousemove="update_label(this)" data-label_id='income_val'
+                                data-label_max="370000+">
+                        </div>
+                        <div class="form-group">
+                            <span>Owned House Price: $<span id='house_val'>0</span></span>
+                            <input type='range' class='form-range' min='0' value="0" max='885000' step='1000'
+                                id='house_input' onmousemove="update_label(this)" data-label_id='house_val'
+                                data-label_max="885000+">
+                        </div>
+                        <div class="form-group">
+                            <span>Car Value: $<span id='car_val'>1500</span></span>
+                            <input type='range' class='form-range' min='1500' value="1500" max='68000' step='500'
+                                id='car_input' onmousemove="update_label(this)" data-label_id='car_val'
+                                data-label_max="68000+">
+                        </div>
+                        <div class="form-group">
+                            <span>Car Age (years): <span id='car_age_val'>1</span></span>
+                            <input type='range' class='form-range' min='1' value="1" max='28' step='1'
+                                id='car_age_input' onmousemove="update_label(this)" data-label_id='car_age_val'
+                                data-label_max="28+">
+                        </div>
+                        <div class="form-group">
+                            <span>Previous Claim Value: $<span id='prev_clm_val'>0</span></span>
+                            <input type='range' class='form-range' min='0' value="0" max='57000' step='100'
+                                id='prev_clm_input' onmousemove="update_label(this)" data-label_id='prev_clm_val'
+                                data-label_max="57000+">
+                        </div>
+                        <div class="form-group">
+                            <span>Years on same policy: <span id='tif_val'>1</span></span>
+                            <input type='range' class='form-range' min='1' value="1" max='25' step='1' id='tif_input'
+                                onmousemove="update_label(this)" data-label_id='tif_val' data-label_max="25+">
+                        </div>
+                        <div class="form-group">
+                            <span>Points on license: <span id='pts_val'>0</span></span>
+                            <input type='range' class='form-range' min='0' value="0" max='13' step='1' id='pts_input'
+                                onmousemove="update_label(this)" data-label_id='pts_val' data-label_max="13+">
+                        </div>
+                        <div class="form-group">
+                            <span>Child Drivers: <span id='kidsdriv_val'>0</span></span>
+                            <input type='range' class='form-range' min='0' value="0" max='4' step='1'
+                                id='kidsdriv_input' onmousemove="update_label(this)" data-label_id='kidsdriv_val'
+                                data-label_max="4+">
+                        </div>
+                        <div class="form-group">
+                            <span>Children at home: <span id='child_at_home_val'>0</span></span>
+                            <input type='range' class='form-range' min='0' value="0" max='5' step='1'
+                                id='child_at_home_input' onmousemove="update_label(this)"
+                                data-label_id='child_at_home_val' data-label_max="5+">
+                        </div>
+                        <div class="form-group">
+                            <span>Hours driving per week: <span id='travtime_val'>5</span></span>
+                            <input type='range' class='form-range' min='5' value="5" max='140' step='1'
+                                id='travtime_input' onmousemove="update_label(this)" data-label_id='travtime_val'
+                                data-label_max="140+">
+                        </div>
+                        <div class="form-group">
+                            <span>Years at same job: <span id='yoj_val'>0</span></span>
+                            <input type='range' class='form-range' min='0' value="0" max='23' step='1' id='yoj_input'
+                                onmousemove="update_label(this)" data-label_id='yoj_val' data-label_max="23+">
+                        </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="commercial-priv-radio" id="commercial_radio"
-                            value="commercial">
-                        <label class="form-check-label" for="commercial_radio">Yes</label>
+                    <div class='non-sliders' style="max-width: 40vw" onmousemove="update_label(null)">
+                        <div class="form-group">
+                            <label for="car_type_input">Car Type:</label>
+                            <select class="form-control" id="car_type_input">
+                                <option>SUV</option>
+                                <option>Sports Car</option>
+                                <option>Van</option>
+                                <option>Minivan</option>
+                                <option>Pickup</option>
+                                <option>Panel Truck</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="occupation_input">Occupation:</label>
+                            <select class="form-control" id="occupation_input">
+                                <option>Student</option>
+                                <option>Blue Collar</option>
+                                <option>Professional</option>
+                                <option>Clerical</option>
+                                <option>Manager</option>
+                                <option>Home Maker</option>
+                                <option>Lawyer</option>
+                                <option>Doctor</option>
+                                <option>Unemployed / Other</option>
+                            </select>
+                        </div>
+
+                        <br>
+
+                        <div class="form-group">
+                            <label for="education_input">Education:</label>
+                            <select class="form-control" id="education_input">
+                                <option>&ltHigh School</option>
+                                <option>High School</option>
+                                <option>Bachelors</option>
+                                <option>Masters</option>
+                                <option>PhD</option>
+                            </select>
+                        </div>
+
+                        <br>
+
+                        <div class='form-group'>
+                            <label>Do you drive the car for commercial purposes?: &emsp;</label>
+                            <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="commercial-priv-radio"
+                                    id="private_radio" value="private" checked>
+                                <label class="form-check-label" for="private_radio">No</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="commercial-priv-radio"
+                                    id="commercial_radio" value="commercial">
+                                <label class="form-check-label" for="commercial_radio">Yes</label>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label>Are you married?: &emsp;</label>
+                            <br>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="married-radio" id="married_no_radio"
+                                    value="no" checked>
+                                <label class="form-check-label" for="married_no_radio">No</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="married-radio" id="married_yes_radio"
+                                    value="yes">
+                                <label class="form-check-label" for="married_yes_radio">Yes</label>
+                            </div>
+                        </div>
+                        <br>
+                        <label>Have you ever had a driving ban?: &emsp;</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="revoked-radio" id="revoked_no_radio"
+                                value="no">
+                            <label class="form-check-label" for="revoked_no_radio">No</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="revoked-radio" id="revoked_yes_radio"
+                                value="yes">
+                            <label class="form-check-label" for="revoked_yes_radio">Yes</label>
+                        </div>
+                        <br><br>
+                        <label>What sort of area do you live in?: &emsp;</label>
+                        <br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="urban_radio"
+                                value="no">
+                            <label class="form-check-label" for="urban_radio">Urban</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rural_radio"
+                                value="yes">
+                            <label class="form-check-label" for="rural_radio">Rural</label>
+                        </div>
                     </div>
-                </div>
-                <br>
-                <div class="form-group">
-                    <label>Are you married?: &emsp;</label>
-                    <br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="married-radio" id="married_no_radio"
-                            value="no">
-                        <label class="form-check-label" for="married_no_radio">No</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="married-radio" id="married_yes_radio"
-                            value="yes">
-                        <label class="form-check-label" for="married_yes_radio">Yes</label>
-                    </div>
-                </div>
-                <br>
-                <label>Have you ever had a driving ban?: &emsp;</label><br>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="revoked-radio" id="revoked_no_radio" value="no">
-                    <label class="form-check-label" for="revoked_no_radio">No</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="revoked-radio" id="revoked_yes_radio"
-                        value="yes">
-                    <label class="form-check-label" for="revoked_yes_radio">Yes</label>
-                </div>
-                <br><br>
-                <label>What sort of area do you live in?: &emsp;</label>
-                <br>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="urban_radio"
-                            value="no">
-                        <label class="form-check-label" for="urban_radio">Urban</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="rural_radio"
-                            value="yes">
-                        <label class="form-check-label" for="rural_radio">Rural</label>
                 </div>
 
-
-                </div>
-
-            </div>
-                
                 <h3>What does it do?</h3>
                 <p>...</p>
                 <h3>How does it work?</h3>
