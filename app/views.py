@@ -14,32 +14,59 @@ app.config['MAX_CONTENT_LENGTH'] = 1024*1024
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
-    # test for POST for scrabbler:
-    if request.method == 'POST' and str(request.data[:15])[4:15] == 'userLetters':
+    # test if POST for scrabbler:
+    if (
+        request.method == 'POST' and 
+        str(request.data[:15])[4:15] == 'userLetters'
+        ):
+        
         json_body = json.loads(request.data.decode('utf-8')) # parse json
-        possible_words = scrabble.find_words(json_body['board_dict'], json_body['userLetters'])
+        possible_words = scrabble.find_words(
+            json_body['board_dict'], 
+            json_body['userLetters'])
         json_response = make_response(jsonify(possible_words), 200)
         return json_response
+    
     req = request.get_json()
+    
     if req != None:
         return imgMods.process_request(req)
+    
+    # if POST request contains an image to upload:
     if request.method == 'POST' and request.files['image']:
         try:
-            ok_file_exts = ['jpg', 'jpeg', 'png', 'gif', 'JPG', 'JPEG', 'PNG', 'GIF']
-            wrong_ext = False
+            ok_file_exts = ['jpg', 'jpeg', 'png', 'gif', 'JPG', 
+                            'JPEG', 'PNG', 'GIF']
             image = request.files['image']
-            if image.filename != '' and image.filename.split('.')[-1] in ok_file_exts:
+
+            if (
+                image.filename != '' and
+                image.filename.split('.')[-1] in ok_file_exts
+            ):
                 img = image.read()
                 base_img = imgMods.upload_img_to_base64(img)
-                return render_template('index.html', image=base_img, scrollToMod=True)
+                
+                return render_template(
+                    'index.html', 
+                    image=base_img, 
+                    scrollToMod=True)
             else:
-                return render_template('index.html', wrong_ext = True, scrollToMod=True)
+                return render_template(
+                    'index.html', 
+                    wrong_ext = True, 
+                    scrollToMod=True)
         except Exception as e: # TODO: fix this awful exception handling!!!
             if str(e)[:3] == '413': # if 413 - Req Entity Too Large:
-                return render_template('index.html', big_file=True, scrollToMod=True)
+                return render_template(
+                    'index.html', 
+                    big_file=True, 
+                    scrollToMod=True)
             else:
                 with open('./error_logs.txt', 'a') as log:
-                    log.write(f'Img upload POST error @ {datetime.now()}:\n{repr(e)}\n')
+                    log.write(
+                        f'Img upload POST error @'
+                        f' {datetime.now()}:\n{repr(e)}\n')
+    
     return render_template('index.html')
 
 

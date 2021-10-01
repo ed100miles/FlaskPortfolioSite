@@ -47,6 +47,16 @@ function scroll(e){
     window.scrollBy(0, targetPosition)
 }
 
+function update_label(e) {
+    let label_id = document.querySelector(`#${e.id}`).dataset.label_id
+    if (e.value < parseInt(e.max)) {
+        document.getElementById(label_id).innerHTML = e.value
+    }
+    else {
+        document.getElementById(label_id).innerHTML = document.querySelector(`#${e.id}`).dataset.label_max
+    }
+}
+
 BRANDLINK.addEventListener('click', scroll)
 HOMELINK.addEventListener('click', scroll)
 ABOUTLINK.addEventListener('click', scroll)
