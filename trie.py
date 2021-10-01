@@ -5,7 +5,8 @@ from collections import Counter
 
 
 class Scrabble():
-    """Facade providing public interface for implementation of scrabble game"""
+    """Facade providing public interface for implementation of 
+    scrabble game"""
 
     def __init__(self, valid_scrabble_words: dict) -> None:
         self._scoreWord = Scorer()
@@ -13,28 +14,41 @@ class Scrabble():
         self._trie = Trie(valid_scrabble_words)
         self._word_finder = WordFinder(self._trie)
 
-    def find_words(self, board: Dict[str, str], user_letters: str) -> Dict[Any, List[Tuple[str, str]]]:
-        """Takes dict of letters on board and a string of users letters and return dict of possible words + definitions"""
+    def find_words(
+        self, 
+        board: Dict[str, str], 
+        user_letters: str
+        ) -> Dict[Any, List[Tuple[str, str]]]:
+        
+        """Takes dict of letters on board and a string of users letters
+         and return dict of possible words + definitions"""
+        
         possible_words: Dict[str, str] = {}
         unique_board_letters: Set[str] = set()
+        
         for key in board:
-            if board[key] != '.':               # if there's a letter at that position in the board
+            if board[key] != '.': # if there's a letter at that position in the board
                 unique_board_letters.add(board[key].lower())
 
-        if len(unique_board_letters) > 0:   # if there's any letters on the board
-            for letter in unique_board_letters:     # check what words can be made w/ board+user letters
+        # if there's any letters on the board
+        if len(unique_board_letters) > 0:   
+            # check what words can be made w/ board+user letters
+            for letter in unique_board_letters:     
                 user_letters_and_board_letter = user_letters + letter
                 found_words_dict = self._word_finder.find_words(
                     user_letters_and_board_letter)
                 for word in found_words_dict:
-                    # check if word can fit on the board:
+                    # check if word can fit on the board
+                    # if so, add to dict
                     if self.check_fits.fits_board(board, word):
                         if word not in possible_words:
-                            # add word to dict with definition as key
                             possible_words[word] = found_words_dict[word]
-        else:                                                   # if there's no letters on the board
+        
+        else: 
+            # if there's no letters on the board 
+            # just return words user can make
             possible_words = self._word_finder.find_words(
-                user_letters)                                   # just return words user can make
+                user_letters)                                  
 
         # add scores to words:
         possible_words_with_scores_and_defs = self._scoreWord._score_word_dict(
@@ -48,27 +62,40 @@ class Trie:
     class _Node:
         """Non-public Node subclass for Trie class"""
 
-        def __init__(self, letter: str = None, is_word: Union[bool, str] = False) -> None:
+        def __init__(
+            self, 
+            letter: str = None,
+            is_word: Union[bool, str] = False
+            ) -> None:
+
             """Create Trie node instance"""
             self.letter = letter
             self.is_word = is_word
             self.children: Dict = {}
 
     def __init__(self, words_for_trie: Dict[str, str]) -> None:
+        
         """Initialise Trie structure with words_to_add input"""
+        
         self.root = self._Node()
         self.words_for_trie: Dict[str, str] = words_for_trie
         self.populate_trie(self.words_for_trie)
 
     def populate_trie(self, words_to_add) -> None:
+        
         """Adds dict of words to Trie data structure."""
+        
         for word in words_to_add:
             self.add_word(word.lower())
 
     def add_word(self, word: str) -> None:
-        """Adds single word str to the Trie tree, with each letter as a _Node instance."""
+        
+        """Adds single word str to the Trie tree, 
+        with each letter as a _Node instance."""
+        
         index_node = self.root
         is_word: Union[bool, str] = False
+        
         for letter_index, letter in enumerate(word):
             if letter not in index_node.children:
                 if letter_index == len(word) - 1:    # if iter is last letter
@@ -82,14 +109,16 @@ class Trie:
 
 
 class WordFinder:
-    """Collection of methods for finding valid words in a given a Trie instance"""
+    """Collection of methods for finding valid words in a 
+    given a Trie instance"""
 
     def __init__(self, trie_instance) -> None:
         self._trie = trie_instance
 
     def find_words(self, user_letters: str) -> dict:
-        """Returns dict of words in Trie with matching letters in user_letters string.
-            Dict comprised of matching words as keys and definitions as values."""
+        """Returns dict of words in Trie with matching letters in 
+        user_letters string.Dict comprised of matching words as keys
+         and definitions as values."""
         self.found_words: List[str] = []
         self._find_words(Counter(user_letters))
 
@@ -101,7 +130,8 @@ class WordFinder:
         return found_words_and_defs
 
     def _find_words(self, user_letters: Dict[str, int], node=None) -> None:
-        """Private. Appends to self.found_words list all words added to Trie instance that can be made using user_letters"""
+        """Private. Appends to self.found_words list all words added to
+        Trie instance that can be made using user_letters"""
         if node == None:
             node = self._trie.root
         if node.is_word:
@@ -109,7 +139,8 @@ class WordFinder:
         # Base case:
         if len(node.children) == 0 or sum(user_letters.values()) == 0:
             return None
-        # else recur down each node.child where node.child in user_letters and count > 0
+        # else recur down each node.child 
+        # where node.child in user_letters and count > 0
         for child in node.children:
             if child in user_letters and user_letters[child] > 0:
                 user_letters_less_child = user_letters.copy()
@@ -123,15 +154,22 @@ class Scorer:
     def _score_word(self, word: str):
         """Returns scrabble score of word string"""
         _score = 0
-        _letter_scores = {'a': 1, 'b': 3, 'c': 3, 'd': 2, 'e': 1, 'f': 4, 'g': 2, 'h': 4, 'i': 1, 'j': 8, 'k': 5, 'l': 1,
-                          'm': 3, 'n': 1, 'o': 1, 'p': 3, 'q': 10, 'r': 1, 's': 1, 't': 1, 'u': 1, 'v': 8, 'w': 4, 'x': 8, 'y': 4, 'z': 10}
+        _letter_scores = {'a': 1, 'b': 3, 'c': 3, 'd': 2, 'e': 1, 'f': 4, 
+        'g': 2, 'h': 4, 'i': 1, 'j': 8, 'k': 5, 'l': 1, 'm': 3, 'n': 1,
+        'o': 1, 'p': 3, 'q': 10, 'r': 1, 's': 1, 't': 1, 'u': 1, 'v': 8,
+        'w': 4, 'x': 8, 'y': 4, 'z': 10}
         _word_to_score = word.lower()  # handle if casing is wrong
+  
         for letter in _word_to_score:
             _score += _letter_scores[letter]
         return _score
 
-    def _score_word_dict(self, word_itter: Dict[str, str]) -> Dict[Any, List[Tuple[str, str]]]:
-        """Returns dict with score as key and list of tuples (word, definition) as vaule. Takes dict of words:definitions as input."""
+    def _score_word_dict(
+        self, word_itter: Dict[str, str]
+        ) -> Dict[Any, List[Tuple[str, str]]]:
+        """Returns dict with score as key and list of tuples 
+        (word, definition) as vaule. Takes dict of words:definitions
+        as input."""
         words_defs_scores_dict = {}
         for word in word_itter:
             score = self._score_word(word)
@@ -143,10 +181,13 @@ class Scorer:
 
 
 class FitBoard:
-    """Component class providing methods that confirm if a word fits on a given board"""
+    """Component class providing methods that confirm if a word fits 
+    on a given board"""
 
     def fits_board(self, board: dict, word: str) -> bool:
-        """Returns True if word fits either horizontally or vertically on a board and doesn't clash with other letters, else return False. """
+        """Returns True if word fits either horizontally or vertically 
+        on a board and doesn't clash with other letters, else return False."""
+
         # Start by creating empty 2d array board representation:
         out_board: List = [[None] * 15 for i in range(15)]
         # edit board to reflect input:
@@ -163,7 +204,9 @@ class FitBoard:
 
     def _check_horizontal(self, word: str, out_board: List) -> bool:
         """Iterates through word and board calling fits_left_right method. 
-        Returns True if there's a position where the word fits horizontally on the board, else False."""
+        Returns True if there's a position where the word fits horizontally
+        on the board, else False."""
+        
         for letter_num, letter in enumerate(word):
             for row in out_board:
                 for square_num, square in enumerate(row):
@@ -178,13 +221,16 @@ class FitBoard:
 
     def _fits_left_right(self, word: str, letter_num: int, letter: str,
                          row: List, square_num: int, square: str) -> tuple:
-        """Returns tuple (True, True) if a word fits horizontally at a given position on a board."""
+        """Returns tuple (True, True) if a word fits horizontally at a
+        given position on a board."""
+        
         enough_space_right = False
         enough_space_left = False
         # calculate space required before and after letter for word to fit
         before_space_needed = word.index(letter, letter_num)
         if square_num != '0':
-            #  +1 to ensure there's space before any letters if not on left edge of board
+            #  +1 to ensure there's space before any letters 
+            # if not on left edge of board
             before_space_needed + 1
         after_space_needed = len(
             word) - word.index(letter, letter_num)
