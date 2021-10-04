@@ -48,6 +48,18 @@ function scroll(e){
 }
 
 function update_label(e) {
+    debounce_get_risk()
+    if(e != null){
+        let label_id = document.querySelector(`#${e.id}`).dataset.label_id
+        if (e.value < parseInt(e.max)) {
+            document.getElementById(label_id).innerHTML = e.value
+        } else {
+            document.getElementById(label_id).innerHTML = document.querySelector(`#${e.id}`).dataset.label_max
+        }
+    }
+}
+
+function get_risk(){
     let car_use
     let married
     let revoked
@@ -94,7 +106,6 @@ function update_label(e) {
         GENDER: 'M',
         PARENT1: 'No'
     }
-
     fetch(`${window.origin}/underwriter`,{
         method: 'POST',
         credentials: 'include',
@@ -107,18 +118,34 @@ function update_label(e) {
     .then(function(response){
         response.json().then(function(data){
             console.log(data)
+            let risk_value = data[0]
+            let redness = data[1]
+            let greenness = data[2]
+            document.getElementById('risk').innerHTML = risk_value
+            document.getElementById('risk').style.color = `rgb(${redness}, ${greenness}, 80)`
+            console.log(`red: ${redness}`)
+            console.log(`green: ${greenness}`)
         })
     })
-
-    if(e != null){
-        let label_id = document.querySelector(`#${e.id}`).dataset.label_id
-        if (e.value < parseInt(e.max)) {
-            document.getElementById(label_id).innerHTML = e.value
-        } else {
-            document.getElementById(label_id).innerHTML = document.querySelector(`#${e.id}`).dataset.label_max
-        }
-    }
 }
+
+function debounce(func, wait, immediate) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+let debounce_get_risk = debounce(function() {
+	get_risk()
+}, 500);
 
 BRANDLINK.addEventListener('click', scroll)
 HOMELINK.addEventListener('click', scroll)

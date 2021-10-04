@@ -1,3 +1,4 @@
+from werkzeug.wrappers import response
 from app import app
 from flask import render_template, request, redirect, jsonify, make_response
 import cv2 
@@ -111,15 +112,18 @@ def underwriter():
         trans_json_df = pipe.data_pipeline.transform(json_df)
 
         app_df = empty_df.append(trans_json_df)
-
         app_df = app_df.fillna(0)
         predict_df = app_df.iloc[-1:]
 
-        print(predict_df)
+        # print(predict_df)
 
-        print('prediction:', ada.predict_proba(predict_df))
+        # risk = round((ada.predict_proba(predict_df.to_numpy())[0][1] - 0.48) * 6500 / 3, 2)
+        risk = ada.predict_proba(predict_df.to_numpy())[0][1]
+        redness = 255 
+        greenness = 255
+        response = (risk, redness, greenness)
 
-        json_response = make_response(jsonify('template response'), 200)
+        json_response = make_response(jsonify(response), 200)
         return json_response
         
         
