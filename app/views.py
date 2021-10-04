@@ -14,6 +14,7 @@ import data_pipe as pipe
 import pickle
 
 app.config['MAX_CONTENT_LENGTH'] = 1024*1024
+
 with open('app/pickles/ada76.pickle', 'rb') as file:
     ada = pickle.load(file)
 
@@ -105,26 +106,47 @@ def underwriter():
     if request.method == 'POST':
         json_body = json.loads(request.data.decode('utf-8')) # parse json
         json_df = pd.DataFrame(json_body, index=[1])
-        df = pipe.df.copy()
+
+        empty_df = pipe.empty_df
+        trans_json_df = pipe.data_pipeline.transform(json_df)
+
+        app_df = empty_df.append(trans_json_df)
+
+        app_df = app_df.fillna(0)
+        predict_df = app_df.iloc[-1:]
+
+        print(predict_df)
+
+        print('prediction:', ada.predict_proba(predict_df))
+
+        json_response = make_response(jsonify('template response'), 200)
+        return json_response
         
-        for key, val in json_body.items():
-            try:
-                for column in df.columns:
-                    try:
-                        _ = json_df[column]
-                    except:
-                        pass
-                json_df[column] = 0.0
-                json_body[key] = float(val)
-            except:
-                pass
+        
+        
+        # df = pipe.train_set.copy()
+        # json_body_modified = {}
+        # for key, val in json_body.items():
+        #     try:
+        #         for column in df.columns:
+        #             try:
+        #                 _ = json_body[column]
+        #                 json_body_modified[key] = float(val)
+        #             except:
+        #                 json_body_modified[column] = 0.0
+        #     except:
+        #         pass
 
-        print(json_body)
 
-        json_df = pipe.data_pipeline.transform(json_df)
+        # json_df = pd.DataFrame(json_body_modified, index=[1])
+        
+        # print(len(json_body_modified))
+        # print(json_body_modified)
+
+        # json_df = pipe.data_pipeline.transform(json_df)
 
 
-        print(set(df.columns).symmetric_difference(set(json_df.columns)))
+        # print(set(df.columns).symmetric_difference(set(json_df.columns)))
 
         # for column in json_df.columns:
         #     try:
@@ -140,6 +162,5 @@ def underwriter():
 
         # print(df.info())
         # print(ada.predict(json_df))
-        json_response = make_response(jsonify('template response'), 200)
-        return json_response
+
 

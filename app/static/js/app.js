@@ -85,7 +85,6 @@ function update_label(e) {
         CAR_TYPE: document.getElementById('car_type_input').value,
         OCCUPATION: document.getElementById('occupation_input').value,
         EDUCATION: document.getElementById('education_input').value,
-        CLM_AMT: document.getElementById('prev_clm_input').value,
         CAR_USE: car_use,
         MSTATUS: married,
         REVOKED: revoked,

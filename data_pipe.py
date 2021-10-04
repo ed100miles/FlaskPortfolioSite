@@ -80,8 +80,9 @@ class DropFeatures(BaseEstimator, TransformerMixin):
             try:
                 df = df.drop(feature, axis=1)
             except KeyError as e:
-                print(e)
-                print(f'No column {feature} in dataframe.')
+                pass
+                # print(e)
+                # print(f'No column {feature} in dataframe.')
         return df
 
 
@@ -187,7 +188,7 @@ test_set = test_set.reset_index()
 
 # Define pipeline parameters:
 
-dollar_fields = ['INCOME', 'HOME_VAL', 'BLUEBOOK', 'OLDCLAIM', 'CLM_AMT']
+dollar_fields = ['INCOME', 'HOME_VAL', 'BLUEBOOK', 'OLDCLAIM']
 drop_features = ['CLM_AMT', 'BIRTH', 'RED_CAR', 'ID', 'index']
 features_to_1hot = ['EDUCATION', 'OCCUPATION', 'CAR_USE', 'CAR_TYPE']
 nans_to_mean = ['AGE', 'CAR_AGE', 'YOJ'] + dollar_fields
@@ -201,9 +202,9 @@ features_to_scale = list(set(non_binary_features) -
                             set(drop_features + features_to_1hot + ['index']))
 
 data_pipeline = Pipeline([
+    ('drop_features', DropFeatures(drop_features)),
     ('dollar_transform', DollarTranformer(dollar_fields)),
     ('feat_to_mean', NaN2Mean(nans_to_mean)),
-    ('drop_features', DropFeatures(drop_features)),
     ('feat_to_1hot', Make1Hot(features_to_1hot)),
     ('feat_to_ordinal', MakeOrdinal(features_to_ordinal)),
     ('build_feats', FeatureEngineer()),
@@ -221,28 +222,26 @@ test_data = (test_X, test_y)
 
 # Balance data sets:
 
-cat_features = [index for index, feature 
-                in enumerate(train_X.columns) 
-                if len(train_X[feature].unique()) == 2]
+# cat_features = [index for index, feature 
+#                 in enumerate(train_X.columns) 
+#                 if len(train_X[feature].unique()) == 2]
 
-rus = RandomUnderSampler()
-ros = RandomOverSampler()
-smotenc = SMOTENC(categorical_features=cat_features)
+# rus = RandomUnderSampler()
+# ros = RandomOverSampler()
+# smotenc = SMOTENC(categorical_features=cat_features)
 
-smote_train_data = smotenc.fit_resample(train_X, train_y)
-os_train_data = ros.fit_resample(train_X, train_y)
-us_train_data = ros.fit_resample(train_X, train_y)
+# smote_train_data = smotenc.fit_resample(train_X, train_y)
+# os_train_data = ros.fit_resample(train_X, train_y)
+# us_train_data = ros.fit_resample(train_X, train_y)
 
-data_sets = [train_data, test_data, smote_train_data, os_train_data, us_train_data]
+# data_sets = [train_data, test_data, smote_train_data, os_train_data, us_train_data]
 
 # with open('./data/pickles/data_sets', 'wb') as pickle_out:
 #     pickle.dump(data_sets, pickle_out)
 
 # print(df.head())
-to_empty_df = train_X.iloc[0:1]
-for column in to_empty_df.columns:
-    to_empty_df.loc[[0],[column]] = 0.0
+empty_df = train_X.iloc[0:1]
+for column in empty_df.columns:
+    empty_df.loc[[0],[column]] = 0.0
 
-
-# print(df.columns)
 
