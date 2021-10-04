@@ -54,41 +54,46 @@ function update_label(e) {
     let urbanicity 
 
     if (document.getElementById('private_radio').checked){
-        car_use = 'private'
-    } else { car_use = 'commercial' }
+        car_use = 'Private'
+    } else { car_use = 'Commercial' }
 
     if (document.getElementById('married_no_radio').checked){
-        married = 'no'
-    } else { married = 'yes' }
+        married = 'z_No'
+    } else { married = 'Yes' }
 
     if (document.getElementById('revoked_no_radio').checked){
-        revoked = 'no'
-    } else { revoked = 'yes' }
+        revoked = 'No'
+    } else { revoked = 'Yes' }
     
     if (document.getElementById('urban_radio').checked){
-        urbanicity = 'urban'
-    } else { urbanicity = 'rural' }
+        urbanicity = 'Highly Urban/ Urban'
+    } else { urbanicity = 'z_Highly Rural/ Rural' }
 
     let risk_values = {
-        age: document.getElementById('age_input').value,
-        income: document.getElementById('income_input').value,
-        house_price: document.getElementById('house_input').value,
-        car_value: document.getElementById('car_input').value,
-        car_age: document.getElementById('car_age_input').value,
-        oldclaim: document.getElementById('prev_clm_input').value,
-        tif: document.getElementById('tif_input').value,
-        points: document.getElementById('pts_input').value,
-        kids_driv: document.getElementById('kidsdriv_input').value,
-        home_kids: document.getElementById('child_at_home_input').value,
-        travtime: document.getElementById('travtime_input').value,
-        yoj: document.getElementById('yoj_input').value,
-        car_type: document.getElementById('car_type_input').value,
-        occupation: document.getElementById('occupation_input').value,
-        education: document.getElementById('education_input').value,
-        car_use: car_use,
-        married: married,
-        revoked: revoked,
-        urbanicity: urbanicity
+        AGE: parseFloat(document.getElementById('age_input').value),
+        INCOME: parseFloat(document.getElementById('income_input').value),
+        HOME_VAL: parseFloat(document.getElementById('house_input').value),
+        BLUEBOOK: parseFloat(document.getElementById('car_input').value),
+        CAR_AGE: parseFloat(document.getElementById('car_age_input').value),
+        OLDCLAIM: parseFloat(document.getElementById('prev_clm_input').value),
+        TIF: parseFloat(document.getElementById('tif_input').value),
+        MVR_PTS: parseFloat(document.getElementById('pts_input').value),
+        KIDSDRIV: parseFloat(document.getElementById('kidsdriv_input').value),
+        HOMEKIDS: parseFloat(document.getElementById('child_at_home_input').value),
+        TRAVTIME: parseFloat(document.getElementById('travtime_input').value),
+        YOJ: parseFloat(document.getElementById('yoj_input').value),
+        CAR_TYPE: document.getElementById('car_type_input').value,
+        OCCUPATION: document.getElementById('occupation_input').value,
+        EDUCATION: document.getElementById('education_input').value,
+        CLM_AMT: document.getElementById('prev_clm_input').value,
+        CAR_USE: car_use,
+        MSTATUS: married,
+        REVOKED: revoked,
+        URBANICITY: urbanicity,
+        // BIRTH: 'na',
+        CLM_FREQ: 0,
+        GENDER: 'M',
+        PARENT1: 'No'
     }
 
     fetch(`${window.origin}/underwriter`,{

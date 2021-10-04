@@ -9,8 +9,13 @@ from app import imgMods
 from trie import scrabble
 import json
 from datetime import datetime
+import pandas as pd
+import data_pipe as pipe
+import pickle
 
 app.config['MAX_CONTENT_LENGTH'] = 1024*1024
+with open('app/pickles/ada76.pickle', 'rb') as file:
+    ada = pickle.load(file)
 
 @app.route('/', methods=['POST', 'GET'])
 def index():
@@ -98,6 +103,43 @@ def uploadimage():
 @app.route('/underwriter', methods=['POST'])
 def underwriter():
     if request.method == 'POST':
-        print(request.data)
+        json_body = json.loads(request.data.decode('utf-8')) # parse json
+        json_df = pd.DataFrame(json_body, index=[1])
+        df = pipe.df.copy()
+        
+        for key, val in json_body.items():
+            try:
+                for column in df.columns:
+                    try:
+                        _ = json_df[column]
+                    except:
+                        pass
+                json_df[column] = 0.0
+                json_body[key] = float(val)
+            except:
+                pass
+
+        print(json_body)
+
+        json_df = pipe.data_pipeline.transform(json_df)
+
+
+        print(set(df.columns).symmetric_difference(set(json_df.columns)))
+
+        # for column in json_df.columns:
+        #     try:
+        #         json_df[column] = json_df[column].astype('float64')
+        #     except Exception as e:
+        #         print(e)
+    
+
+        # for column in json_df.columns:
+        #     df[column] = json_df[column].astype('float64')
+
+        # df = pipe.data_pipeline.transform(df)
+
+        # print(df.info())
+        # print(ada.predict(json_df))
         json_response = make_response(jsonify('template response'), 200)
         return json_response
+
