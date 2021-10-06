@@ -117,14 +117,11 @@ function get_risk(){
     })
     .then(function(response){
         response.json().then(function(data){
-            console.log(data)
             let risk_value = data[0]
             let redness = data[1]
             let greenness = data[2]
             document.getElementById('risk').innerHTML = risk_value
             document.getElementById('risk').style.color = `rgb(${redness}, ${greenness}, 0)`
-            console.log(`red: ${redness}`)
-            console.log(`green: ${greenness}`)
         })
     })
 }

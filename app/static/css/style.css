@@ -517,4 +517,24 @@ body h4 {
   width: 80vw;
   border-radius: 5px;
 }
+
+.uw-div {
+  font-size: small;
+}
+
+.uw-div h2 {
+  text-align: center;
+}
+
+.uw-div label {
+  font-size: small;
+}
+
+.uw-div #risk_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
 /*# sourceMappingURL=style.css.map */

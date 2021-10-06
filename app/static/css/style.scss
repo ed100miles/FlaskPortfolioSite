@@ -403,3 +403,18 @@ $square-hover-bg: rgb(72, 100, 44);
     border-radius: 5px;
 }
 
+// Underwriter:
+
+.uw-div{
+    font-size: small;
+    h2{
+        text-align: center;
+    }
+    label{
+        font-size: small;
+    }
+    #risk_form{
+        display: flex; 
+        justify-content: space-around;
+    }
+}
