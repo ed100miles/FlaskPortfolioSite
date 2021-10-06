@@ -117,10 +117,11 @@ def underwriter():
 
         # print(predict_df)
 
-        # risk = round((ada.predict_proba(predict_df.to_numpy())[0][1] - 0.48) * 6500 / 3, 2)
-        risk = ada.predict_proba(predict_df.to_numpy())[0][1]
-        redness = 255 
-        greenness = 255
+        risk = round((ada.predict_proba(predict_df.to_numpy())[0][1]*100 - 45) * 10, 2)
+        redness = round(2.55 * risk)
+        greenness = round(2.55 * (100 - risk))
+        print(redness)
+        print(greenness)
         response = (risk, redness, greenness)
 
         json_response = make_response(jsonify(response), 200)
