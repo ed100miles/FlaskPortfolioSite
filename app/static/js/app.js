@@ -63,7 +63,7 @@ function get_risk(){
     let car_use
     let married
     let revoked
-    let urbanicity 
+    let urbanicity
 
     if (document.getElementById('private_radio').checked){
         car_use = 'Private'
@@ -142,7 +142,7 @@ function debounce(func, wait, immediate) {
 };
 let debounce_get_risk = debounce(function() {
 	get_risk()
-}, 500);
+}, 250);
 
 BRANDLINK.addEventListener('click', scroll)
 HOMELINK.addEventListener('click', scroll)

@@ -409,12 +409,17 @@ $square-hover-bg: rgb(72, 100, 44);
     font-size: small;
     h2{
         text-align: center;
+        padding-bottom: 2vh;
     }
     label{
         font-size: small;
     }
     #risk_form{
         display: flex; 
-        justify-content: space-around;
+        justify-content: center;
+        padding-bottom: 2vh;
+    }
+    .non-sliders{
+        padding-left: 10vw;
     }
 }

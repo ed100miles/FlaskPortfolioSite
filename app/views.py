@@ -126,3 +126,7 @@ def underwriter():
         response = (risk, redness, greenness)
 
         return make_response(jsonify(response), 200)
+
+@app.route('/visuals', methods=['GET'])
+def visuals():
+    return render_template('visuals.html')
