@@ -1,4 +1,3 @@
-from werkzeug.wrappers import response
 from app import app
 from flask import render_template, request, redirect, jsonify, make_response
 import cv2
@@ -64,6 +63,7 @@ def index():
                     wrong_ext=True,
                     scrollToMod=True)
         except Exception as e:  #  TODO: fix this awful exception handling!!!
+            print(e)
             if str(e)[:3] == '413':  #  if 413 - Req Entity Too Large:
                 return render_template(
                     'index.html',
@@ -112,7 +112,7 @@ def underwriter():
         json_body = json.loads(request.data.decode('utf-8'))  # parse json
         json_df = pd.DataFrame(json_body, index=[1])
 
-        empty_df = pipe.empty_df
+        empty_df = pipe.empty_df    # import empty df from
         trans_json_df = pipe.data_pipeline.transform(json_df)
 
         app_df = empty_df.append(trans_json_df)
@@ -126,6 +126,7 @@ def underwriter():
         response = (risk, redness, greenness)
 
         return make_response(jsonify(response), 200)
+
 
 @app.route('/visuals', methods=['GET'])
 def visuals():

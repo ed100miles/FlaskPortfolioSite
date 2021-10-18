@@ -11,35 +11,35 @@ const SKILLS_SCROLL_LINK = document.querySelector('#skills-scroll-link');
 const PROJECTS_SCROLL_LINK = document.querySelector('#projects-scroll-link');
 const TO_TOP_SCROLL_LINK = document.querySelector('#to-top-scroll-link');
 
-const TYPE_TEXTS = ['Software Development...', 
-                    'Python...',
-                    'JavaScript...',
-                    'Bash...',
-                    'HTML & CSS...',
-                    'Flask...',
-                    'SQL...',
-                    'Machine Learning...',
-                    'Docker...']
+const TYPE_TEXTS = ['Software Development...',
+    'Python...',
+    'JavaScript...',
+    'Bash...',
+    'HTML & CSS...',
+    'Flask...',
+    'SQL...',
+    'Machine Learning...',
+    'Docker...']
 let count = 0;
 let index = 0;
 let currentText = '';
 let letter = '';
 
-(function type(){
-    if(count === TYPE_TEXTS.length){
+(function type() {
+    if (count === TYPE_TEXTS.length) {
         count = 0;
     };
-    currentText= TYPE_TEXTS[count];
+    currentText = TYPE_TEXTS[count];
     letter = currentText.slice(0, ++index);
     document.querySelector('.typed-content').textContent = letter;
-    if(letter.length === currentText.length){
+    if (letter.length === currentText.length) {
         count++;
         index = 0;
     }
     setTimeout(type, 200)
 }());
 
-function scroll(e){
+function scroll(e) {
     e.preventDefault();
     let targetDiv = e.target.attributes['data-scrollto'].value;
     console.log(targetDiv);
@@ -49,7 +49,7 @@ function scroll(e){
 
 function update_label(e) {
     debounce_get_risk()
-    if(e != null){
+    if (e != null) {
         let label_id = document.querySelector(`#${e.id}`).dataset.label_id
         if (e.value < parseInt(e.max)) {
             document.getElementById(label_id).innerHTML = e.value
@@ -59,25 +59,25 @@ function update_label(e) {
     }
 }
 
-function get_risk(){
+function get_risk() {
     let car_use
     let married
     let revoked
     let urbanicity
 
-    if (document.getElementById('private_radio').checked){
+    if (document.getElementById('private_radio').checked) {
         car_use = 'Private'
     } else { car_use = 'Commercial' }
 
-    if (document.getElementById('married_no_radio').checked){
+    if (document.getElementById('married_no_radio').checked) {
         married = 'z_No'
     } else { married = 'Yes' }
 
-    if (document.getElementById('revoked_no_radio').checked){
+    if (document.getElementById('revoked_no_radio').checked) {
         revoked = 'No'
     } else { revoked = 'Yes' }
-    
-    if (document.getElementById('urban_radio').checked){
+
+    if (document.getElementById('urban_radio').checked) {
         urbanicity = 'Highly Urban/ Urban'
     } else { urbanicity = 'z_Highly Rural/ Rural' }
 
@@ -106,7 +106,7 @@ function get_risk(){
         GENDER: 'M',
         PARENT1: 'No'
     }
-    fetch(`${window.origin}/underwriter`,{
+    fetch(`${window.origin}/underwriter`, {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(risk_values),
@@ -115,33 +115,33 @@ function get_risk(){
             'content-type': 'application/json'
         })
     })
-    .then(function(response){
-        response.json().then(function(data){
-            let risk_value = data[0]
-            let redness = data[1]
-            let greenness = data[2]
-            document.getElementById('risk').innerHTML = risk_value
-            document.getElementById('risk').style.color = `rgb(${redness}, ${greenness}, 0)`
+        .then(function (response) {
+            response.json().then(function (data) {
+                let risk_value = data[0]
+                let redness = data[1]
+                let greenness = data[2]
+                document.getElementById('risk').innerHTML = risk_value
+                document.getElementById('risk').style.color = `rgb(${redness}, ${greenness}, 0)`
+            })
         })
-    })
 }
 
 function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
+    var timeout;
+    return function () {
+        var context = this, args = arguments;
+        var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
 };
-let debounce_get_risk = debounce(function() {
-	get_risk()
+let debounce_get_risk = debounce(function () {
+    get_risk()
 }, 250);
 
 BRANDLINK.addEventListener('click', scroll)

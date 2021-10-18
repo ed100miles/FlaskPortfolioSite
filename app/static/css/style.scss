@@ -1,5 +1,3 @@
-
-
 $nav-bg: rgb(6, 55, 110);
 $off-white-text: #EEFBFB;
 $bg-color1: #203647;
@@ -422,4 +420,9 @@ $square-hover-bg: rgb(72, 100, 44);
     .non-sliders{
         padding-left: 10vw;
     }
+}
+
+// Underwriter:
+#blurb{
+    font-size: $text-font-size;
 }

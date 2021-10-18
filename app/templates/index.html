@@ -718,9 +718,17 @@
                         </div>
                     </div>
                     <h3>What does it do?</h3>
-                    <p>...</p>
-                    <h3>How does it work?</h3>
-                    <p>...</p>
+                    <div id='blurb'>
+                        <p>A risk rating out of one hundred, representing the chance of an individual needing to make a claim on their policy, is calculated and displayed based on the details entered by the user.</p>
+                        <h3>How does it work?</h3>
+                        <p>The goal for this project was to train a machine learning model that accurately predicts whether an individual will make a claim on their insurance policy given certain metrics.</p>
+                        <p>This project uses a <a href="https://www.kaggle.com/xiaomengsun/car-insurance-claim-data" rel="noreferrer" target="_blank">Kaggle dataset</a> with features such as age and income, and a label showing whether an insurance claim was made.</p>
+                        <p>The first steps towards making an accurate model were to take an initial look at the data to gain some insight into what features may be more useful for making predictions, wether useful features can be engineered, and then to clean up and normalise the data. </p>
+                        <p>After some initial cleaning of the data (like converting dollar values from strings to integers) I created a number of <a href="https://ed100miles.github.io/visuals/">tableau dashboards</a> to help visualise the data to look for correlations.</p>
+                        <p>The dashboards show some clear linear and non-linear correlations between features and whether claims were made - as well as that some features appear to have little or no relationship with claims, which will be dropped before training the model.</p>
+                        <p>While looking at the data I also experimented with creating new features, the most promising was dividing driving points by age. This feature had the second highest bivariate correlation which means it's likely to be a useful feature to include when training the model. It makes sense that this is a well correleated metric as an eighty-year-old with ten points on their license is likely to be safer than a twenty-year-old with the same number of points.</p>
+                        <p></p>
+                    </div>
                 </div>
                 <hr>
                 <div class='git-links'>
@@ -761,4 +769,3 @@
 </div>
 
 {% endblock %}
-

@@ -22,12 +22,12 @@ function lettersChange(e) {
         }
         return board_dict
     }
-    board_dict = getBoardDict()
+    let board_dict = getBoardDict()
     let userLetters = USER_LETTERS.value
     let json_body = { 'userLetters': userLetters, 'board_dict': board_dict }
     // let allLetters = stringify(userLetters) + stringify(board_dict)
     // console.log(userLetters)
-    
+
     fetch(`${window.origin}/`, {
         method: 'POST',
         credentials: 'include',
@@ -61,11 +61,11 @@ function lettersChange(e) {
                 }
             })
         })
-        .catch(function(e){
-            if(e.name == 'AbortError'){
+        .catch(function (e) {
+            if (e.name == 'AbortError') {
                 console.log('User abored fetch')
             }
-            else{
+            else {
                 throw e;
             }
         })
@@ -73,22 +73,22 @@ function lettersChange(e) {
 
 // Debouncer for lettersChange - https://davidwalsh.name/javascript-debounce-function
 function debounce(func, wait, immediate) {
-	var timeout;
-	return function() {
-		var context = this, args = arguments;
-		var later = function() {
-			timeout = null;
-			if (!immediate) func.apply(context, args);
-		};
-		var callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait);
-		if (callNow) func.apply(context, args);
-	};
+    var timeout;
+    return function () {
+        var context = this, args = arguments;
+        var later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+        };
+        var callNow = immediate && !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+        if (callNow) func.apply(context, args);
+    };
 };
 
-let debounce_letters_changed = debounce(function(e) {
-	lettersChange(e)
+let debounce_letters_changed = debounce(function (e) {
+    lettersChange(e)
 }, 500);
 
 // Board typing:
@@ -173,7 +173,7 @@ document.addEventListener('keyup', (e) => {
 
 USER_LETTERS.addEventListener('keyup', debounce_letters_changed)
 
-FOUND_WORDS_LIST.addEventListener('mouseover', function(e){
+FOUND_WORDS_LIST.addEventListener('mouseover', function (e) {
     let found_word = e.toElement.textContent.split(':')[0]
     DEFINITION_CONTAINER.textContent = possible_words_dict[found_word]
 })

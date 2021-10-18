@@ -1,4 +1,4 @@
-function imgMod(){
+function imgMod() {
 
     let redness = document.getElementById('redness').value
     let greenness = document.getElementById('greenness').value
@@ -22,7 +22,7 @@ function imgMod(){
         rotation: rotation
     }
 
-    fetch(`${window.origin}/`,{
+    fetch(`${window.origin}/`, {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(clientInfo),
@@ -31,9 +31,9 @@ function imgMod(){
             'content-type': 'application/json'
         })
     })
-    .then(function(response){
-        response.json().then(function(data){
-            document.getElementById('mod_img').src = `data:image/jpeg;base64,${data}`
+        .then(function (response) {
+            response.json().then(function (data) {
+                document.getElementById('mod_img').src = `data:image/jpeg;base64,${data}`
+            })
         })
-    })
 }
