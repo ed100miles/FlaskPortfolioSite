@@ -27,14 +27,14 @@
 <div class='about-div' id="about-div">
     <h1>About Me</h1>
     <div class='about-blurb'>
-        <p>I'm Ed Miles. I've been working in finance for several years. But most of my spare time I've spent learning
-            to code. </p>
-        <p>I've decided to turn my passion into a career. Take a look at my website and if you think I could be a good
-            fit with your team, send me an email.</p>
-        <p>I really enjoy writing programs that help solve a problem, but often they're just for a bit of fun or to
-            learn something new. I get a real kick out of machine learning and natural language programming.</p>
-        <p>You can see some examples of things I've built in the <i>'projects'</i> section below. You'll also find links
-            to my github where you can check out the source code.</p>
+        <ul>
+            <li>I am a full-stack developer looking for a full-time position. Python is my language of choice but I am also confident with JavaScript, HTML and CSS. </li>
+            <li>I particularly enjoy computer vision, natural language programming and machine learning projects, but so long as I am writing code and learning new things, I'm happy!</li>
+            <li>I strive to write robust, adaptable and reusable code through use of object-oriented design principles of modularity, abstraction and encapsulation. Knowledge of common software design patterns and application of SOLID design principles help me achieve this goal.</li>
+            <li>I enjoy producing efficient programs through the selection and implementation of suitable data structures and algorithms to reduce computational complexity.</li>
+            <li>I understand the importance of thoroughly testing code before it is used in a production environment. So I am experienced writing automated unit and integration tests, and with the test driven development methodology.</li>
+        </ul>
+        <p>There are two further sections on this site. The first goes into more detail about the skills I have developed, and the second gives some interactive examples of projects I have worked on. Please take a look.</p>
         <p>Thanks for visiting!</p>
     </div>
     <div class="next-section-link">
@@ -44,6 +44,7 @@
         </a>
     </div>
 </div>
+
 
 <div class='skills-div' id="skills-div">
     <h1>Technical Skills</h1>
@@ -515,7 +516,6 @@
                     frameBorder='0'></iframe>
             </div>
 
-
             <div class="tab-pane fade project-pane" id="nav-underw" role="tabpanel" aria-labelledby="nav-underw-tab">
                 <div class="uw-div">
                     <h2>Risk Form</h2>
@@ -614,7 +614,7 @@
                             <div>
                                 <h2>Risk Rating: <span id='risk'></span></h2>
                             </div>
-                            <br><br>
+                            <br>
                             <div class="form-group" onchange="update_label(null)">
                                 <label for="car_type_input">Car Type:</label>
                                 <select class="form-control-sm" id="car_type_input">
@@ -641,9 +641,7 @@
                                     <option value='Student'>Unemployed / Other</option>
                                 </select>
                             </div>
-
                             <br>
-
                             <div class="form-group" onchange="update_label(null)">
                                 <label for="education_input">Education:</label>
                                 <select class="form-control-sm" id="education_input">
@@ -654,9 +652,7 @@
                                     <option>PhD</option>
                                 </select>
                             </div>
-
                             <br>
-
                             <div class='form-group' onchange="update_label(null)">
                                 <label>Do you drive the car for commercial purposes?: &emsp;</label>
                                 <br>
@@ -719,24 +715,22 @@
                     </div>
                     <h3>What does it do?</h3>
                     <div id='blurb'>
-                        <p>A risk rating out of one hundred, representing the chance of an individual needing to make a claim on their policy, is calculated and displayed based on the details entered by the user.</p>
+                        <p>The user provides certain information which is passed to a machine learning model to calculate a 'risk rating' - an indicator of the likelihood an individual will need to make a claim.</p>
                         <h3>How does it work?</h3>
                         <p>The goal for this project was to train a machine learning model that accurately predicts whether an individual will make a claim on their insurance policy given certain metrics.</p>
                         <p>This project uses a <a href="https://www.kaggle.com/xiaomengsun/car-insurance-claim-data" rel="noreferrer" target="_blank">Kaggle dataset</a> with features such as age and income, and a label showing whether an insurance claim was made.</p>
                         <p>The first steps towards making an accurate model were to take an initial look at the data to gain some insight into what features may be more useful for making predictions, wether useful features can be engineered, and then to clean up and normalise the data. </p>
                         <p>After some initial cleaning of the data (like converting dollar values from strings to integers) I created a number of <a href="https://ed100miles.github.io/visuals/" rel="noreferrer" target="_blank">tableau dashboards</a> to help visualise the data to look for correlations.</p>
-                        <p>The dashboards show some clear linear and non-linear correlations between features and whether claims were made - as well as that some features appear to have little or no relationship with claims, which will be dropped before training the model.</p>
-                        <p>While looking at the data I also experimented with creating new features, the most promising was dividing driving penalty points by age. This feature had the second highest bivariate correlation which means it's likely to be a useful feature to include when training the model.</p>
+                        <p>The dashboards show some clear linear and non-linear correlations between features and whether claims were made - as well as that some features appear to have little or no relationship with claims, these features will be dropped before training the model.</p>
+                        <p>While exploring the data, I also experimented with engineering some new features by preforming calculations on existing ones. The most promising was created by dividing driving penalty points by age. This feature had the second highest bivariate correlation which means it's likely to be a useful feature to include when training the model.</p>
                         <p>Then I created <a href="https://github.com/ed100miles/Underwriter/blob/main/src/transform_data/data_pipe.py" rel="noreferrer" target="_blank">custom data transormer classes</a> that inherit from the Scikit-Learn BaseEstimator and TransformerMixin classes and use these to build a <a href="https://github.com/ed100miles/Underwriter/blob/main/src/transform_data/data_pipe.py" rel="noreferrer" target="_blank">data pipeline</a>. The data pipeline is vital for ensuring that the test dataset and any unlabeled data for classifictation is scaled accurately based on the scale generated by calling the fit_transform method on the training data.</p>
-                        <p>The next question was how best to balance the data, as leaving the training data unbalanced would cause the model to bias towards predicting an individual wouldn't claim as this is the most likely outcome. I ran experiments using random over and under sampling techniques, as well as the synthetic minority over sampling technique. After running the different balanced data types through a selection of different models, it was clear that plain random under sampling produced the best accuracy on test data. While doing this, I also utilised Scikit-Learns' Halving grid search cross validation class to narrow down promising hyperparameter values for different models. You can find the script I wrote for this process <a href="https://github.com/ed100miles/Underwriter/blob/main/src/transform_data/models.py" rel="noreferrer" target="_blank">here</a>.</p>
+                        <p>The next question was how best to balance the data, as leaving the training data unbalanced would cause the model to bias towards predicting an individual wouldn't claim as this is the most likely outcome. I ran experiments using random over and under sampling techniques, and the synthetic minority over sampling technique. After running the different balanced data types through a selection of different models, it was clear that plain random under sampling produced the best accuracy on the test data. While doing this, I also utilised Scikit-Learns' Halving grid search cross validation class to narrow down promising hyperparameter values for different models. You can find the script I wrote for this process <a href="https://github.com/ed100miles/Underwriter/blob/main/src/transform_data/models.py" rel="noreferrer" target="_blank">here</a>.</p>
+                        <p>The out of sample accuracies are output to a log file. The models that have the best overall accuracy are the ones that are more likely to predict that an individual wont claim, but the AdaBoost estimator is robust. When testing the models I measured how accurate a model was when predicting an individual would claim and how accurate a model was when predicting an individual would claim. The AdaBoost model scored over 70% accuracy for both these metrics and so doesn't appear to have developed a bias.</p>
+                        <p>After some fine tuning of the hyperparameter values, I'm happy with the model and serialise it with the pickle module. This website opens the pickled model and uses it to make a prediction based on the information provided by the user in the form above. I use the Scikit-Learn .predict_proba method to calculate the 'risk rating' out of a hundred.</p>
                     </div>
                 </div>
-                <hr>
+                <hr>  
                 <div class='git-links'>
-                    <a href='https://ed100miles.github.io/Underwriter/' rel="noreferrer" target='_blank'>
-                        <i class="fas fa-external-link-alt"></i>
-                        Open project in a new tab
-                    </a>
                     <a href='https://github.com/ed100miles/Underwriter' rel="noreferrer" target='_blank'>
                         <i class="fab fa-github"></i>
                         Source Code

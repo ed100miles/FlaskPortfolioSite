@@ -1,12 +1,14 @@
 body {
+  background-image: url(../../static/imgs/starsLong.jpg);
+  background-size: contain;
   scroll-behavior: smooth;
-  background-color: #203647;
+  background-color: rgba(0, 0, 0, 0.8);
   color: #EEFBFB;
   font-family: "Ubuntu Mono", serif;
 }
 
 body h4 {
-  font-size: 3vmin;
+  font-size: 2vmin;
   text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -15,7 +17,7 @@ body h4 {
 
 .navbar {
   border-bottom: 1px solid white;
-  background-color: #06376e;
+  background-color: rgba(8, 22, 39, 0.9);
 }
 
 .navbar .navbar-brand {
@@ -52,6 +54,8 @@ body h4 {
 }
 
 .intro-div {
+  border-bottom: solid 1px white;
+  width: 100vw;
   height: calc(100vh - 49px);
   margin-top: 49px;
 }
@@ -142,34 +146,47 @@ body h4 {
           align-items: center;
   height: 10%;
   text-align: center;
-  font-size: 3vmin;
+  font-size: 2vmin;
 }
 
 .about-div {
+  border-bottom: solid 1px white;
   height: calc(100vh - 49px);
-  background-color: #164664;
 }
 
 .about-div h1 {
   height: 15%;
   padding-top: 5vh;
+  padding-bottom: 5vh;
   font-size: 8vmin;
   text-align: center;
 }
 
 .about-div .about-blurb {
-  height: 75%;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 5vmin;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  height: auto;
+  max-height: 75%;
+  width: 80vw;
   padding: 5vmin;
-  font-size: 3vmin;
+  font-size: 2vmin;
+  overflow: scroll;
+  margin-bottom: 10vh;
 }
 
 .skills-div {
+  border-bottom: solid 1px white;
   height: calc(100vh - 49px);
 }
 
 .skills-div h1 {
   height: 15%;
   padding-top: 5vh;
+  padding-bottom: 5vh;
   font-size: 8vmin;
   text-align: center;
 }
@@ -179,7 +196,16 @@ body h4 {
 }
 
 .skills-div .skills {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom-left-radius: 5vmin;
+  border-bottom-right-radius: 5vmin;
+  width: 90vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
   padding-top: 3vh;
+  padding-bottom: 3vh;
   font-size: 1.8vmin;
 }
 
@@ -192,7 +218,7 @@ body h4 {
 
 .skills-div .nav-link {
   color: #EEFBFB;
-  font-size: 3vmin;
+  font-size: 2vmin;
   border-color: #EEFBFB;
   border-style: solid;
   border-width: 1px;
@@ -207,14 +233,25 @@ body h4 {
 
 .projects-div {
   min-height: calc(100vh - 49px);
-  background-color: #164664;
 }
 
 .projects-div h1 {
   height: 15%;
   padding-top: 5vh;
+  padding-bottom: 5vh;
   font-size: 8vmin;
   text-align: center;
+}
+
+.projects-div #nav-tabContent {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom-left-radius: 5vmin;
+  border-bottom-right-radius: 5vmin;
+  width: 90vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
 }
 
 .projects-div .nav-tabs {
@@ -224,7 +261,7 @@ body h4 {
 
 .projects-div .nav-link {
   color: #EEFBFB;
-  font-size: 3vmin;
+  font-size: 2vmin;
   border-color: #EEFBFB;
   border-style: solid;
   border-width: 1px;
@@ -234,7 +271,7 @@ body h4 {
 
 .projects-div .tab-pane {
   padding: 3vmin;
-  font-size: 3vmin;
+  font-size: 2vmin;
 }
 
 .projects-div .tab-pane h3 {
@@ -244,12 +281,14 @@ body h4 {
 }
 
 .projects-div .tab-pane .trie-img {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.85);
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50vmin;
   padding: 1vmin;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
   border-radius: 1vmin;
 }
 
@@ -287,7 +326,7 @@ body h4 {
 }
 
 .projects-div .scrabble-frame {
-  width: 80vw;
+  width: 70vw;
   min-height: 50vh;
   border-radius: 1vmin;
   display: block;
@@ -356,8 +395,9 @@ body h4 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: grey;
+  background-color: rgba(8, 22, 39, 0.9);
   padding: 1vw;
+  margin-top: 5vh;
 }
 
 .footer-div a {
@@ -419,8 +459,6 @@ body h4 {
 
 .board_and_words .board {
   margin-left: 1vmin;
-  min-width: 50vmin;
-  min-height: 50vmin;
   width: 50vmin;
   height: 50vmin;
   background-color: black;
@@ -464,13 +502,11 @@ body h4 {
 }
 
 .board_and_words .found_words {
-  background-color: #7a95d1;
+  background-color: black;
   color: wheat;
   text-align: center;
   margin-left: 1vmin;
   margin-top: 1px;
-  min-width: 40vmin;
-  min-height: 50vmin;
   width: 40vmin;
   height: 50vmin;
   border-radius: 5px;
@@ -495,7 +531,8 @@ body h4 {
 
 .form_container .button {
   border-radius: 1vmin;
-  background-color: #7a95d1;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
   font-size: 2vmin;
   height: 5vmin;
   width: 20vmin;
@@ -503,6 +540,7 @@ body h4 {
 
 .form_container .clicked {
   background-color: yellow;
+  color: black;
 }
 
 .form_container .user_letters {
@@ -511,7 +549,8 @@ body h4 {
 
 .definition_container {
   margin: auto;
-  background-color: #7a95d1;
+  background-color: black;
+  font-size: 2vmin;
   color: wheat;
   text-align: center;
   width: 80vw;
@@ -520,6 +559,7 @@ body h4 {
 
 .uw-div {
   font-size: small;
+  overflow: hidden;
 }
 
 .uw-div h2 {
@@ -546,6 +586,6 @@ body h4 {
 }
 
 #blurb {
-  font-size: 3vmin;
+  font-size: 2vmin;
 }
 /*# sourceMappingURL=style.css.map */

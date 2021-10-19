@@ -1,19 +1,21 @@
-$nav-bg: rgb(6, 55, 110);
+$nav-bg: rgba(8, 22, 39, 0.9);
 $off-white-text: #EEFBFB;
-$bg-color1: #203647;
-$bg-color2: #164664;
-
-// bootstrap nav 40px collapsed
+$bg-color1: rgba(0,0,0,0.8);
+$bg-color2: black;
+// $bg-color1: #203647;
+// $bg-color2: #164664;
 
 $main-font: 'Ubuntu Mono', serif;
 $title-font: 'JetBrains Mono', serif;
 
 $header-font-size: 8vmin;
 $h3-font-size: 4vmin;
-$text-font-size: 3vmin;
+$text-font-size: 2vmin;
 $nav-font-size: 1.8vmin;
 
 body{
+    background-image: url(../../static/imgs/starsLong.jpg);
+    background-size: contain;
     scroll-behavior: smooth;
     background-color: $bg-color1;
     color: $off-white-text;
@@ -61,6 +63,8 @@ body{
 }
 
 .intro-div{
+    border-bottom: solid 1px white;
+    width: 100vw;
     height: calc(100vh - 49px);
     margin-top: 49px;
     .intro-top{
@@ -115,26 +119,37 @@ body{
 }
 
 .about-div{
+    border-bottom: solid 1px white;
     height: calc(100vh - 49px);
-    background-color: $bg-color2;
     h1{
         height: 15%;
         padding-top: 5vh;
+        padding-bottom: 5vh;
         font-size: $header-font-size;
         text-align: center;
     }
     .about-blurb{
-        height: 75%;
+        background-color: $bg-color1;
+        border-radius: 5vmin;
+        align-items: center;
+        margin: auto;
+        height: auto;
+        max-height: 75%;
+        width: 80vw;
         padding: 5vmin;
         font-size: $text-font-size;
+        overflow: scroll;
+        margin-bottom: 10vh;
     }
 }
 
 .skills-div{
+    border-bottom: solid 1px white;
     height: calc(100vh - 49px);
     h1{
         height: 15%;
         padding-top: 5vh;
+        padding-bottom: 5vh;
         font-size: $header-font-size;
         text-align: center;
     }
@@ -142,7 +157,14 @@ body{
         height: 75%;
     }
     .skills{
+        background-color: $bg-color1;
+        border-bottom-left-radius: 5vmin;
+        border-bottom-right-radius: 5vmin;
+        width: 90vw;
+        align-items: center;
+        margin: auto;
         padding-top: 3vh;
+        padding-bottom: 3vh;
         font-size: $nav-font-size;
     }
     li{
@@ -167,12 +189,21 @@ body{
 
 .projects-div{
     min-height: calc(100vh - 49px);
-    background-color: $bg-color2;
+    // background-color: $bg-color2;
     h1{
         height: 15%;
         padding-top: 5vh;
+        padding-bottom: 5vh;
         font-size: $header-font-size;
         text-align: center;
+    }
+    #nav-tabContent{
+        background-color: $bg-color1;
+        border-bottom-left-radius: 5vmin;
+        border-bottom-right-radius: 5vmin;
+        width: 90vw;
+        align-items: center;
+        margin: auto;
     }
     .nav-tabs{
         justify-content: space-around;
@@ -195,12 +226,14 @@ body{
             font-weight: bold;
         }
         .trie-img{
-            background-color: white;
+            background-color: rgba(255,255,255,0.85);
             display: block;
             margin-left: auto;
             margin-right: auto;
             width: 50vmin;
             padding: 1vmin;
+            margin-top: 5vh;
+            margin-bottom: 5vh;
             border-radius: 1vmin;
         }
     }
@@ -230,7 +263,7 @@ body{
         margin: 0 auto;
     }
     .scrabble-frame{
-        width: 80vw;
+        width: 70vw;
         min-height: 50vh;
         border-radius: 1vmin;
         display: block;
@@ -263,8 +296,9 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: grey;
+    background-color: $nav-bg;
     padding: 1vw;
+    margin-top: 5vh;
     a {
         color: $off-white-text;
         text-decoration: none;
@@ -303,7 +337,6 @@ body{
     margin-right: auto;
     margin-left: auto; 
 }
-
 .wrong_ext{
     color: red;
 }
@@ -314,15 +347,14 @@ $primary-bg: rgb(122, 149, 209);
 $square-bg: beige;
 $square-hover-bg: rgb(72, 100, 44);
 
-
 .board_and_words{
     display: flex;
     justify-content: space-around;
     .board{
         margin-left: 1vmin;
         // margin-top: 5vmin;
-        min-width: 50vmin;
-        min-height: 50vmin;
+        // min-width: 50vmin;
+        // min-height: 50vmin;
         width: 50vmin;
         height: 50vmin;
         background-color: black;
@@ -353,13 +385,11 @@ $square-hover-bg: rgb(72, 100, 44);
         }
     }
     .found_words{
-        background-color: $primary-bg;
+        background-color: black;
         color: wheat;
         text-align: center;
         margin-left: 1vmin;
         margin-top: 1px;
-        min-width: 40vmin;
-        min-height: 50vmin;
         width: 40vmin;
         height: 50vmin;
         border-radius: 5px;
@@ -379,13 +409,15 @@ $square-hover-bg: rgb(72, 100, 44);
     justify-content: space-around;
     .button{
         border-radius: 1vmin;
-        background-color: $primary-bg;
+        background-color: $bg-color1;
+        color: white;
         font-size: 2vmin;
         height: 5vmin;
         width: 20vmin;
     }
     .clicked{
         background-color: yellow;
+        color: black;
     }
     .user_letters{
         font-size: 2vmin;
@@ -394,7 +426,8 @@ $square-hover-bg: rgb(72, 100, 44);
 
 .definition_container{
     margin: auto;
-    background-color: $primary-bg;
+    background-color: black;
+    font-size: $text-font-size;
     color: wheat;
     text-align: center;
     width: 80vw;
@@ -405,6 +438,7 @@ $square-hover-bg: rgb(72, 100, 44);
 
 .uw-div{
     font-size: small;
+    overflow: hidden;
     h2{
         text-align: center;
         padding-bottom: 2vh;
