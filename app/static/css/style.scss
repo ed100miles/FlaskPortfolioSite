@@ -10,7 +10,7 @@ $title-font: 'JetBrains Mono', serif;
 
 $header-font-size: 8vmin;
 $h3-font-size: 4vmin;
-$text-font-size: 2vmin;
+$text-font-size: 2.5vmin;
 $nav-font-size: 1.8vmin;
 
 body{
@@ -134,12 +134,12 @@ body{
         align-items: center;
         margin: auto;
         height: auto;
-        max-height: 75%;
+        max-height: 70vh;
         width: 80vw;
         padding: 5vmin;
         font-size: $text-font-size;
         overflow: scroll;
-        margin-bottom: 10vh;
+        // margin-bottom: 10vh;
     }
 }
 
@@ -161,11 +161,13 @@ body{
         border-bottom-left-radius: 5vmin;
         border-bottom-right-radius: 5vmin;
         width: 90vw;
+        max-height: 60vh;
         align-items: center;
         margin: auto;
         padding-top: 3vh;
         padding-bottom: 3vh;
-        font-size: $nav-font-size;
+        font-size: $text-font-size;
+        overflow: scroll;
     }
     li{
         padding-left: 1vw;
