@@ -131,3 +131,8 @@ def underwriter():
 @app.route('/visuals', methods=['GET'])
 def visuals():
     return render_template('visuals.html')
+
+@app.route('/resume', methods=['GET'])
+def resume():
+    return render_template('resume.html')
+
