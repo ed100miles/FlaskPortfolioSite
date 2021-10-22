@@ -134,12 +134,15 @@ body{
         align-items: center;
         margin: auto;
         height: auto;
-        max-height: 70vh;
+        max-height: 100%;
         width: 80vw;
         padding: 5vmin;
         font-size: $text-font-size;
         overflow: scroll;
         // margin-bottom: 10vh;
+    }
+    .about-blurb-container{
+        height: 75%;
     }
 }
 

@@ -170,11 +170,15 @@ body h4 {
           align-items: center;
   margin: auto;
   height: auto;
-  max-height: 70vh;
+  max-height: 100%;
   width: 80vw;
   padding: 5vmin;
   font-size: 2.5vmin;
   overflow: scroll;
+}
+
+.about-div .about-blurb-container {
+  height: 75%;
 }
 
 .skills-div {
